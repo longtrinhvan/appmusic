@@ -1,7 +1,7 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'model/music.dart';
+import '../model/music.dart';
 import 'home_page.dart';
 
 class MyMusicApp extends StatefulWidget {
@@ -9,18 +9,6 @@ class MyMusicApp extends StatefulWidget {
 
   @override
   _MusicAppState createState() => _MusicAppState();
-}
-
-void runCache(AudioCache cache, BuildContext context) {
-  Music pro = ModalRoute.of(context).settings.arguments;
-  print('Instance: ${pro.toString()}');
-  print('title: ${pro.title}');
-  cache.play("sounds/${pro.namefile}");
-}
-
-String Title(BuildContext context) {
-  Music pro = ModalRoute.of(context).settings.arguments;
-  return "${pro.title}";
 }
 
 class _MusicAppState extends State<MyMusicApp> {
@@ -66,8 +54,6 @@ class _MusicAppState extends State<MyMusicApp> {
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
 
-    //now let's handle the audioplayer time
-
     //this function will allow you to get the music duration
     _player.durationHandler = (d) {
       setState(() {
@@ -85,6 +71,7 @@ class _MusicAppState extends State<MyMusicApp> {
 
   @override
   Widget build(BuildContext context) {
+    Music pro = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       //let's start by creating the main UI of the app
       body: Container(
@@ -149,7 +136,7 @@ class _MusicAppState extends State<MyMusicApp> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(500.0),
                     child: Image.asset(
-                      'assets/sounds/ccyld.jpg',
+                      "assets/sounds/" + "${pro.image}",
                       width: 280.0,
                       height: 280.0,
                       fit: BoxFit.fill,
@@ -162,7 +149,7 @@ class _MusicAppState extends State<MyMusicApp> {
                 ),
                 Center(
                   child: Text(
-                    Title(context),
+                    "${pro.title}",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 22.0,
@@ -230,7 +217,7 @@ class _MusicAppState extends State<MyMusicApp> {
                                 //here we will add the functionality of the play button
                                 if (!playing) {
                                   //now let's play the song
-                                  runCache(cache, context);
+                                  cache.play("sounds/${pro.path}");
                                   setState(() {
                                     playBtn = Icons.pause;
                                     playing = true;

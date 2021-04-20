@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'model/music.dart';
+import '../model/music.dart';
 import 'music_page.dart';
 import 'login_page.dart';
 
@@ -57,7 +57,7 @@ class _NavDrawerState extends State<HomePage> {
               ),
               currentAccountPicture: new ClipRRect(
                 borderRadius: BorderRadius.circular(50.0),
-                child: Image.asset('assets/account.jpg'),
+                child: Image.asset('assets/t4lndce.jpg'),
               ),
             ),
             new ListTile(
@@ -93,20 +93,20 @@ class _NavDrawerState extends State<HomePage> {
 //ignore: must_be_immutable
 class BodyScreen extends StatelessWidget {
   var musics = [
-    Music('CÓ CHẮC YÊU LÀ ĐÂY', 'WaitingForLove.mp3'),
-    Music('Waiting For Love', 'WaitingForLove.mp3'),
-    Music('Em của ngày hôm qua', 'Em Cua Ngay Hom Qua.mp3'),
-    Music('Way Back Home', 'WaitingForLove.mp3'),
-    Music('Something Just Like This', 'WaitingForLove.mp3'),
-    Music('Phao - 2 Phut Hon', 'WaitingForLove.mp3'),
-    Music('XIN ĐỪNG NHẤC MÁY', 'WaitingForLove.mp3'),
-    Music('Exs Hate Me - B Ray x Masew ', 'WaitingForLove.mp3'),
-    Music('Lời Yêu Ngây Dại - Kha', 'WaitingForLove.mp3'),
-    Music('NGƯỜI CÓ THƯƠNG', 'WaitingForLove.mp3'),
-    Music('Có Tất Cả Nhưng Thiếu Anh', 'WaitingForLove.mp3'),
-    Music("If It" + "'" + "s Me - The Men Band", 'WaitingForLove.mp3'),
-    Music('Em Luôn Ở Trong Tâm Trí Anh', 'WaitingForLove.mp3'),
-    Music('Mot Buoc Yeu, Van Dam Dau', 'WaitingForLove.mp3')
+    Music('CÓ CHẮC YÊU LÀ ĐÂY', 'WaitingForLove.mp3','ccyld.jpg'),
+    Music('Waiting For Love', 'WaitingForLove.mp3','maxresdefault.jpg'),
+    Music('Em của ngày hôm qua', 'Em Cua Ngay Hom Qua.mp3','4443_cam-am-sao-truc-em-cua-ngay-hom-qua.jpg'),
+    Music('Way Back Home', 'WaitingForLove.mp3','WayBackHome.jpg'),
+    Music('Something Just Like This', 'WaitingForLove.mp3','Something_Just_Like_This.png'),
+    Music('Phao - 2 Phut Hon', 'WaitingForLove.mp3','haiphuthon.jpg'),
+    Music('XIN ĐỪNG NHẤC MÁY', 'WaitingForLove.mp3','bray.jpg'),
+    Music('Exs Hate Me - B Ray x Masew ', 'WaitingForLove.mp3','bray.jpg'),
+    Music('Lời Yêu Ngây Dại - Kha', 'WaitingForLove.mp3','lynd.jpg'),
+    Music('NGƯỜI CÓ THƯƠNG', 'WaitingForLove.mp3','loi-bai-hat-nguoi-co-thuong-1.jpg'),
+    Music('Có Tất Cả Nhưng Thiếu Anh', 'WaitingForLove.mp3','cotatcanhungthieuanh.jpg'),
+    Music("If It" + "'" + "s Me - The Men Band", 'WaitingForLove.mp3','elttta.jpg'),
+    Music('Em Luôn Ở Trong Tâm Trí Anh', 'WaitingForLove.mp3','elttta.jpg'),
+    Music('Mot Buoc Yeu, Van Dam Dau', 'WaitingForLove.mp3','motbuocyeuvandamdau.jpg'),
   ];
   final List<Music> music;
 
