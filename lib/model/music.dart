@@ -1,6 +1,7 @@
 class Music {
   final String title;
-  final String namefile;
+  final String path;
+  final String image;
 
-  Music(this.title, this.namefile);
+  Music(this.title, this.path,this.image);
 }

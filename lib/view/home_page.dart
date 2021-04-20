@@ -57,7 +57,7 @@ class _NavDrawerState extends State<HomePage> {
               ),
               currentAccountPicture: new ClipRRect(
                 borderRadius: BorderRadius.circular(50.0),
-                child: Image.asset('assets/t4lndce.jpg'),
+                child: Image.asset('assets/account.jpg'),
               ),
             ),
             new ListTile(
