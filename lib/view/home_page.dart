@@ -33,7 +33,7 @@ class _NavDrawerState extends State<HomePage> {
             fit: BoxFit.cover,
           ),
           backgroundColor: Colors.transparent,
-          title: Text("Music",
+          title: Text(" ",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -128,7 +128,7 @@ class _NavDrawerState extends State<HomePage> {
 //ignore: must_be_immutable
 class BodyScreen extends StatelessWidget {
   var musics = [
-    Music('CÓ CHẮC YÊU LÀ ĐÂY', 'WaitingForLove.mp3', 'ccyld.jpg'),
+    Music('Có Chắc Yêu Là Đây', 'WaitingForLove.mp3', 'ccyld.jpg'),
     Music('Waiting For Love', 'WaitingForLove.mp3', 'maxresdefault.jpg'),
     Music('Em của ngày hôm qua', 'Em Cua Ngay Hom Qua.mp3',
         '4443_cam-am-sao-truc-em-cua-ngay-hom-qua.jpg'),
@@ -136,10 +136,10 @@ class BodyScreen extends StatelessWidget {
     Music('Something Just Like This', 'WaitingForLove.mp3',
         'Something_Just_Like_This.png'),
     Music('Phao - 2 Phut Hon', 'WaitingForLove.mp3', 'haiphuthon.jpg'),
-    Music('XIN ĐỪNG NHẤC MÁY', 'WaitingForLove.mp3', 'bray.jpg'),
+    Music('Xin Đừng Nhấc Máy', 'WaitingForLove.mp3', 'bray.jpg'),
     Music('Exs Hate Me - B Ray x Masew ', 'WaitingForLove.mp3', 'bray.jpg'),
     Music('Lời Yêu Ngây Dại - Kha', 'WaitingForLove.mp3', 'lynd.jpg'),
-    Music('NGƯỜI CÓ THƯƠNG', 'WaitingForLove.mp3',
+    Music('Người Có Thương', 'WaitingForLove.mp3',
         'loi-bai-hat-nguoi-co-thuong-1.jpg'),
     Music('Có Tất Cả Nhưng Thiếu Anh', 'WaitingForLove.mp3',
         'cotatcanhungthieuanh.jpg'),
