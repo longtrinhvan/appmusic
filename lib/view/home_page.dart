@@ -19,7 +19,7 @@ class _NavDrawerState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-          title: Text("",
+          title: Text("Music",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -90,55 +90,86 @@ class _NavDrawerState extends State<HomePage> {
     );
   }
 }
+
 //ignore: must_be_immutable
 class BodyScreen extends StatelessWidget {
   var musics = [
-    Music('CÓ CHẮC YÊU LÀ ĐÂY', 'WaitingForLove.mp3','ccyld.jpg'),
-    Music('Waiting For Love', 'WaitingForLove.mp3','maxresdefault.jpg'),
-    Music('Em của ngày hôm qua', 'Em Cua Ngay Hom Qua.mp3','4443_cam-am-sao-truc-em-cua-ngay-hom-qua.jpg'),
-    Music('Way Back Home', 'WaitingForLove.mp3','WayBackHome.jpg'),
-    Music('Something Just Like This', 'WaitingForLove.mp3','Something_Just_Like_This.png'),
-    Music('Phao - 2 Phut Hon', 'WaitingForLove.mp3','haiphuthon.jpg'),
-    Music('XIN ĐỪNG NHẤC MÁY', 'WaitingForLove.mp3','bray.jpg'),
-    Music('Exs Hate Me - B Ray x Masew ', 'WaitingForLove.mp3','bray.jpg'),
-    Music('Lời Yêu Ngây Dại - Kha', 'WaitingForLove.mp3','lynd.jpg'),
-    Music('NGƯỜI CÓ THƯƠNG', 'WaitingForLove.mp3','loi-bai-hat-nguoi-co-thuong-1.jpg'),
-    Music('Có Tất Cả Nhưng Thiếu Anh', 'WaitingForLove.mp3','cotatcanhungthieuanh.jpg'),
-    Music("If It" + "'" + "s Me - The Men Band", 'WaitingForLove.mp3','elttta.jpg'),
-    Music('Em Luôn Ở Trong Tâm Trí Anh', 'WaitingForLove.mp3','elttta.jpg'),
-    Music('Mot Buoc Yeu, Van Dam Dau', 'WaitingForLove.mp3','motbuocyeuvandamdau.jpg'),
+    Music('CÓ CHẮC YÊU LÀ ĐÂY', 'WaitingForLove.mp3', 'ccyld.jpg'),
+    Music('Waiting For Love', 'WaitingForLove.mp3', 'maxresdefault.jpg'),
+    Music('Em của ngày hôm qua', 'Em Cua Ngay Hom Qua.mp3',
+        '4443_cam-am-sao-truc-em-cua-ngay-hom-qua.jpg'),
+    Music('Way Back Home', 'WaitingForLove.mp3', 'WayBackHome.jpg'),
+    Music('Something Just Like This', 'WaitingForLove.mp3',
+        'Something_Just_Like_This.png'),
+    Music('Phao - 2 Phut Hon', 'WaitingForLove.mp3', 'haiphuthon.jpg'),
+    Music('XIN ĐỪNG NHẤC MÁY', 'WaitingForLove.mp3', 'bray.jpg'),
+    Music('Exs Hate Me - B Ray x Masew ', 'WaitingForLove.mp3', 'bray.jpg'),
+    Music('Lời Yêu Ngây Dại - Kha', 'WaitingForLove.mp3', 'lynd.jpg'),
+    Music('NGƯỜI CÓ THƯƠNG', 'WaitingForLove.mp3',
+        'loi-bai-hat-nguoi-co-thuong-1.jpg'),
+    Music('Có Tất Cả Nhưng Thiếu Anh', 'WaitingForLove.mp3',
+        'cotatcanhungthieuanh.jpg'),
+    Music("If It" + "'" + "s Me - The Men Band", 'WaitingForLove.mp3',
+        'elttta.jpg'),
+    Music('Em Luôn Ở Trong Tâm Trí Anh', 'WaitingForLove.mp3', 'elttta.jpg'),
+    Music('Mot Buoc Yeu, Van Dam Dau', 'WaitingForLove.mp3',
+        'motbuocyeuvandamdau.jpg'),
   ];
   final List<Music> music;
 
   BodyScreen({Key key, @required this.music}) : super(key: key);
+  final Shader linearGradient = LinearGradient(colors: <Color>[
+    Colors.white,
+    Colors.white,
+    Colors.white70,
+    Colors.white
+  ]).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: musics.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(musics[index].title,
-                style: TextStyle(color: Colors.lightBlue, fontSize: 17)),
-            // When a user taps the ListTile, navigate to the DetailScreen.
-            // Notice that you're not only creating a DetailScreen, you're
-            // also passing the current todo through to it.
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyMusicApp(),
-                  // Pass the arguments as part of the RouteSettings. The
-                  // DetailScreen reads the arguments from these settings.
-                  settings: RouteSettings(
-                    arguments: musics[index],
-                  ),
+      body: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/background.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: ListView.builder(
+            itemCount: musics.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                contentPadding: EdgeInsets.only(
+                    left: 20.0, right: 0.0, top: 5.0, bottom: 3.0),
+                title: Text(
+                  musics[index].title,
+                  style: new TextStyle(
+                      fontSize: 19.0,
+                      fontFamily: 'RobotoCondensed-Regular',
+                      fontWeight: FontWeight.w300,
+                      foreground: Paint()..shader = linearGradient),
                 ),
+                // When a user taps the ListTile, navigate to the DetailScreen.
+                // Notice that you're not only creating a DetailScreen, you're
+                // also passing the current todo through to it.
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyMusicApp(),
+                      // Pass the arguments as part of the RouteSettings. The
+                      // DetailScreen reads the arguments from these settings.
+                      settings: RouteSettings(
+                        arguments: musics[index],
+                      ),
+                    ),
+                  );
+                },
               );
             },
-          );
-        },
+          ),
+        ),
       ),
     );
   }

@@ -80,5 +80,9 @@ flutter:
     - family: Nunito
       fonts:
         - asset: assets/Nunito.ttf
+
+    - family: RobotoCondensed-Regular
+      fonts:
+        - asset: assets/RobotoCondensed-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
