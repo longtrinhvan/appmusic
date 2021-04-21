@@ -58,13 +58,13 @@ class _NavDrawerState extends State<HomePage> {
             new UserAccountsDrawerHeader(
               accountName: new Text("Trịnh Văn Long",
                   style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
+                      color: Colors.indigo[400],
+                      fontWeight: FontWeight.w600,
                       fontSize: 16)),
               accountEmail: new Text("longtrinhvan97@gmail.com",
                   style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
+                      color: Colors.indigo[400],
+                      fontWeight: FontWeight.w600,
                       fontSize: 16)),
               decoration: new BoxDecoration(
                 image: new DecorationImage(

@@ -77,13 +77,10 @@ class _MusicAppState extends State<MyMusicApp> {
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.blue[800],
-                Colors.blue[200],
-              ]),
+          image: DecorationImage(
+            image: AssetImage("assets/background.jpg"),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Padding(
           padding: EdgeInsets.only(
@@ -95,8 +92,8 @@ class _MusicAppState extends State<MyMusicApp> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 IconButton(
-                  padding: EdgeInsets.only(top: 20),
-                  iconSize: 45.0,
+                  padding: EdgeInsets.only(top: 20, left: 20),
+                  iconSize: 40.0,
                   color: Colors.white,
                   onPressed: () {
                     Navigator.of(context).pushNamed(HomePage.tag);
@@ -106,30 +103,8 @@ class _MusicAppState extends State<MyMusicApp> {
                   ),
                 ),
                 //Let's add some text title
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 12.0),
-                  child: Text(
-                    "Music Beats",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 12.0),
-                  child: Text(
-                    "Listen to your favorite Music",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
                 SizedBox(
-                  height: 24.0,
+                  height: 20.0,
                 ),
                 //Let's add the music cover
                 Center(
@@ -137,8 +112,8 @@ class _MusicAppState extends State<MyMusicApp> {
                     borderRadius: BorderRadius.circular(500.0),
                     child: Image.asset(
                       "assets/sounds/" + "${pro.image}",
-                      width: 280.0,
-                      height: 280.0,
+                      width: 260.0,
+                      height: 260.0,
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -148,26 +123,24 @@ class _MusicAppState extends State<MyMusicApp> {
                   height: 18.0,
                 ),
                 Center(
+                    child: Container(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
                   child: Text(
                     "${pro.title}",
                     style: TextStyle(
-                      color: Colors.white,
                       fontSize: 22.0,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
                     ),
                   ),
-                ),
+                )),
                 SizedBox(
                   height: 30.0,
                 ),
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(30.0),
-                      ),
+                      color: Colors.transparent,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
