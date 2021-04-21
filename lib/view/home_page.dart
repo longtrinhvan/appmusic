@@ -19,6 +19,11 @@ class _NavDrawerState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+          flexibleSpace: Image(
+            image: AssetImage('assets/background.jpg'),
+            fit: BoxFit.cover,
+          ),
+          backgroundColor: Colors.transparent,
           title: Text("Music",
               style: TextStyle(
                   color: Colors.white,
@@ -118,15 +123,16 @@ class BodyScreen extends StatelessWidget {
   final List<Music> music;
 
   BodyScreen({Key key, @required this.music}) : super(key: key);
-  final Shader linearGradient = LinearGradient(colors: <Color>[
-    Colors.white,
-    Colors.white,
-    Colors.white70,
-    Colors.white
-  ]).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
   @override
   Widget build(BuildContext context) {
+
+    final Shader linearGradient = LinearGradient(colors: <Color>[
+      Colors.white,
+      Colors.white,
+      Colors.white70,
+      Colors.white,
+    ]).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
     return Scaffold(
       body: Center(
         child: Container(
@@ -140,15 +146,13 @@ class BodyScreen extends StatelessWidget {
             itemCount: musics.length,
             itemBuilder: (context, index) {
               return ListTile(
-                contentPadding: EdgeInsets.only(
-                    left: 20.0, right: 0.0, top: 5.0, bottom: 3.0),
+                contentPadding: new EdgeInsets.fromLTRB(10, 5, 0, 0),
                 title: Text(
                   musics[index].title,
-                  style: new TextStyle(
-                      fontSize: 19.0,
-                      fontFamily: 'RobotoCondensed-Regular',
-                      fontWeight: FontWeight.w300,
-                      foreground: Paint()..shader = linearGradient),
+                    style: TextStyle(
+
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,foreground: Paint()..shader = linearGradient),
                 ),
                 // When a user taps the ListTile, navigate to the DetailScreen.
                 // Notice that you're not only creating a DetailScreen, you're
