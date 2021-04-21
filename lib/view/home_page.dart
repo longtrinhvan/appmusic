@@ -14,6 +14,13 @@ class HomePage extends StatefulWidget {
 class _NavDrawerState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
+  final Shader linearGradient = LinearGradient(colors: <Color>[
+    Colors.white,
+    Colors.white,
+    Colors.white70,
+    Colors.white,
+  ]).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +46,12 @@ class _NavDrawerState extends State<HomePage> {
       drawer: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Colors.white,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -66,26 +78,38 @@ class _NavDrawerState extends State<HomePage> {
               ),
             ),
             new ListTile(
-                leading: Icon(Icons.shopping_cart),
-                title: new Text("My Music"),
+                leading: Icon(Icons.shopping_cart, color: Colors.white70),
+                title: new Text("My Music",
+                    style: TextStyle(
+                        fontSize: 17,
+                        foreground: Paint()..shader = linearGradient)),
                 onTap: () {
                   Navigator.of(context).pushNamed(MyMusicApp.tag);
                 }),
             new ListTile(
-                leading: Icon(Icons.settings),
-                title: new Text("Settings"),
+                leading: Icon(Icons.settings, color: Colors.white70),
+                title: new Text("Settings",
+                    style: TextStyle(
+                        fontSize: 17,
+                        foreground: Paint()..shader = linearGradient)),
                 onTap: () {
                   Navigator.pop(context);
                 }),
             new ListTile(
-                leading: Icon(Icons.info),
-                title: new Text("About"),
+                leading: Icon(Icons.info, color: Colors.white70),
+                title: new Text("About",
+                    style: TextStyle(
+                        fontSize: 17,
+                        foreground: Paint()..shader = linearGradient)),
                 onTap: () {
                   Navigator.pop(context);
                 }),
             new ListTile(
-                leading: Icon(Icons.power_settings_new),
-                title: new Text("Logout"),
+                leading: Icon(Icons.power_settings_new, color: Colors.white70),
+                title: new Text("Logout",
+                    style: TextStyle(
+                        fontSize: 17,
+                        foreground: Paint()..shader = linearGradient)),
                 onTap: () {
                   Navigator.of(context).pushNamed(LoginPage.tag);
                 }),
@@ -126,7 +150,6 @@ class BodyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final Shader linearGradient = LinearGradient(colors: <Color>[
       Colors.white,
       Colors.white,
@@ -149,10 +172,10 @@ class BodyScreen extends StatelessWidget {
                 contentPadding: new EdgeInsets.fromLTRB(10, 5, 0, 0),
                 title: Text(
                   musics[index].title,
-                    style: TextStyle(
-
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18,foreground: Paint()..shader = linearGradient),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      foreground: Paint()..shader = linearGradient),
                 ),
                 // When a user taps the ListTile, navigate to the DetailScreen.
                 // Notice that you're not only creating a DetailScreen, you're
