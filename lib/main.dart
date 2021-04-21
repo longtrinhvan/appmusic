@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'view/login_page.dart';
-import 'view/home_page.dart';
-import 'view/registration_page.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
-    HomePage.tag: (context) => HomePage(),
-    Registration.tag: (context) => HomePage(),
   };
 
   @override
