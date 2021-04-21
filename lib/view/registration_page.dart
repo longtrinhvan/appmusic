@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'registration_page.dart';
 import 'home_page.dart';
+import 'login_page.dart';
 
-class LoginPage extends StatefulWidget {
-  static String tag = 'login-page';
+class Registration extends StatefulWidget {
+  static String tag = 'registration-page';
 
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _RegistrationPageState createState() => new _RegistrationPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegistrationPageState extends State<Registration> {
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
-      tag: 'hero',
+      tag: 'registrationPageState',
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
         radius: 48.0,
@@ -60,11 +60,11 @@ class _LoginPageState extends State<LoginPage> {
               borderRadius: BorderRadius.circular(24),
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed(HomePage.tag);
+              Navigator.of(context).pushNamed(LoginPage.tag);
             },
             padding: EdgeInsets.all(12),
             color: Colors.transparent,
-            child: Text('Log In',
+            child: Text('Create Account',
                 style: TextStyle(color: Colors.white, fontSize: 17)),
           ),
         ));
@@ -72,14 +72,11 @@ class _LoginPageState extends State<LoginPage> {
     // ignore: deprecated_member_use
     final forgotLabel = FlatButton(
       child: Text(
-        'Registration?',
+        'Login now?',
         style: TextStyle(color: Colors.black54, fontSize: 17),
       ),
       onPressed: () {
-        Navigator.push(context, new MaterialPageRoute(
-            builder: (context) =>
-            new Registration())
-        );
+        Navigator.of(context).pushNamed(LoginPage.tag);
       },
     );
 
