@@ -107,36 +107,7 @@ class _MusicAppState extends State<MyMusicApp> {
                   height: 20.0,
                 ),
                 //Let's add the music cover
-                Center(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(500.0),
-                    child: Image.asset(
-                      "assets/sounds/" + "${pro.image}",
-                      width: 260.0,
-                      height: 260.0,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
 
-                SizedBox(
-                  height: 18.0,
-                ),
-                Center(
-                    child: Container(
-                  padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
-                  child: Text(
-                    "${pro.title}",
-                    style: TextStyle(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                )),
-                SizedBox(
-                  height: 30.0,
-                ),
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
@@ -148,7 +119,35 @@ class _MusicAppState extends State<MyMusicApp> {
                       children: [
                         //Let's start by adding the controller
                         //let's add the time indicator text
-
+                        Expanded(
+                          child: Center(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(500.0),
+                              child: Image.asset(
+                                "assets/sounds/" + "${pro.image}",
+                                width: 306.0,
+                                height: 306.0,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Center(
+                          child: Text(
+                            "${pro.title}",
+                            style: TextStyle(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 70.0,
+                        ),
                         Container(
                           width: 500.0,
                           child: Row(
@@ -216,6 +215,9 @@ class _MusicAppState extends State<MyMusicApp> {
                               ),
                             ),
                           ],
+                        ),
+                        SizedBox(
+                          height: 20.0,
                         ),
                       ],
                     ),
