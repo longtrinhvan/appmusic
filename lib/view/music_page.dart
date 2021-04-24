@@ -78,7 +78,7 @@ class _MusicAppState extends State<MyMusicApp> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/background.jpg"),
+            image: AssetImage("assets/image/background.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -124,7 +124,7 @@ class _MusicAppState extends State<MyMusicApp> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(500.0),
                               child: Image.asset(
-                                "assets/sounds/" + "${pro.image}",
+                                "assets/sounds/image/" + "${pro.image}",
                                 width: 306.0,
                                 height: 306.0,
                                 fit: BoxFit.fill,

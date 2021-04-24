@@ -16,7 +16,7 @@ class _RegistrationPageState extends State<Registration> {
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
         radius: 48.0,
-        child: Image.asset('assets/createAccount.png'),
+        child: Image.asset('assets/image/createAccount.png'),
       ),
     );
 
@@ -49,7 +49,7 @@ class _RegistrationPageState extends State<Registration> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
             image: DecorationImage(
-              image: AssetImage("assets/btncreateAccount.png"),
+              image: AssetImage("assets/image/btncreateAccount.png"),
               fit: BoxFit.cover,
             ),
           ),

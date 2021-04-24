@@ -28,7 +28,7 @@ class _NavDrawerState extends State<HomePage> {
       key: _scaffoldKey,
       appBar: AppBar(
           flexibleSpace: Image(
-            image: AssetImage('assets/background.jpg'),
+            image: AssetImage('assets/image/background.jpg'),
             fit: BoxFit.cover,
           ),
           backgroundColor: Colors.transparent,
@@ -57,7 +57,7 @@ class _NavDrawerState extends State<HomePage> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/background.jpg"),
+            image: AssetImage("assets/image/background.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -77,13 +77,13 @@ class _NavDrawerState extends State<HomePage> {
                       fontSize: 16)),
               decoration: new BoxDecoration(
                 image: new DecorationImage(
-                  image: new ExactAssetImage('assets/banner.jpg'),
+                  image: new ExactAssetImage('assets/image/banner.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
               currentAccountPicture: new ClipRRect(
                 borderRadius: BorderRadius.circular(50.0),
-                child: Image.asset('assets/account.jpg'),
+                child: Image.asset('assets/image/account.jpg'),
               ),
             ),
             new ListTile(
@@ -148,7 +148,7 @@ class BodyScreen extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/background.jpg"),
+              image: AssetImage("assets/image/background.jpg"),
               fit: BoxFit.cover,
             ),
           ),

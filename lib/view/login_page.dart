@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
         radius: 48.0,
-        child: Image.asset('assets/loginicon.png'),
+        child: Image.asset('assets/image/loginicon.png'),
       ),
     );
 
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
             image: DecorationImage(
-              image: AssetImage("assets/background.jpg"),
+              image: AssetImage("assets/image/background.jpg"),
               fit: BoxFit.cover,
             ),
           ),

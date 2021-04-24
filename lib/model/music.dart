@@ -9,7 +9,7 @@ var musics = [
   Music('XIN ĐỪNG NHẤC MÁY', 'WaitingForLove.mp3','bray.jpg'),
   Music('Exs Hate Me - B Ray x Masew ', 'WaitingForLove.mp3','bray.jpg'),
   Music('Lời Yêu Ngây Dại - Kha', 'WaitingForLove.mp3','lynd.jpg'),
-  Music('NGƯỜI CÓ THƯƠNG', 'WaitingForLove.mp3','maxresdefault.jpg'),
+  Music('Người Có Thương', 'WaitingForLove.mp3','maxresdefault.jpg'),
   Music('Có Tất Cả Nhưng Thiếu Anh', 'WaitingForLove.mp3',''),
   Music("If It" + "'" + "s Me - The Men Band", 'WaitingForLove.mp3','cotatcanhungthieuanh.jpg'),
   Music('Em Luôn Ở Trong Tâm Trí Anh', 'WaitingForLove.mp3','elttta.jpg'),

@@ -39,7 +39,12 @@ class Search extends SearchDelegate<String> {
 
     return ListView.builder(
       itemBuilder: (context, index) => ListTile(
-        title: Text(musics[index].title),
+        title: Text(
+          musics[index].title,
+          style: TextStyle(
+            fontSize: 17,
+          ),
+        ),
       ),
       itemCount: suggestionList.length,
     );
@@ -71,11 +76,12 @@ class Search extends SearchDelegate<String> {
         title: RichText(
           text: TextSpan(
               text: suggestionList[index].title.substring(0, query.length),
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 17, color: Colors.red, fontWeight: FontWeight.bold),
               children: [
                 TextSpan(
                     text: suggestionList[index].title.substring(query.length),
-                    style: TextStyle(color: Colors.grey)),
+                    style: TextStyle(fontSize: 17, color: Colors.grey)),
               ]),
         ),
       ),

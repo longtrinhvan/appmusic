@@ -52,7 +52,9 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
+    - assets/image/
     - assets/sounds/
+    - assets/sounds/image/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -79,10 +81,10 @@ flutter:
   fonts:
     - family: Nunito
       fonts:
-        - asset: assets/Nunito.ttf
+        - asset: assets/font/Nunito.ttf
 
     - family: RobotoCondensed-Regular
       fonts:
-        - asset: assets/RobotoCondensed-Regular.ttf
+        - asset: assets/font/RobotoCondensed-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
