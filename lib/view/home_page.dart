@@ -133,7 +133,7 @@ class _NavDrawerState extends State<HomePage> {
 class BodyScreen extends StatelessWidget {
   final List<Music> music;
 
-  BodyScreen({Key key, @required this.music}) : super(key: key);
+  BodyScreen({Key key, this.music}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
-    Registration.tag: (context) => HomePage(),
+    Registration.tag: (context) => Registration(),
   };
 
   @override
