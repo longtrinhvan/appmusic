@@ -8,4 +8,4 @@
 
 
 ## Cách tạo branches
-![image info](./pictures/image.png)
+![image info](./pictures/branches.png)
