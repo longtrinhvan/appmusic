@@ -1,6 +1,7 @@
 # HƯỚNG DẪN SỬ DỤNG GIT
 
 **Bước 1:** Tải và cài đặt **Git Bash**: https://git-scm.com/downloads
+
 ![image info](./pictures/01.png)
 **Bước 2:** Tải và cài đặt **Tortoisegit**: https://tortoisegit.org/download/
 ![image info](./pictures/1.png)
