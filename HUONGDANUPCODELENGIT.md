@@ -1,4 +1,4 @@
-# HƯỚNG DẪN SỬ DỤNG GIT
+# HƯỚNG DẪN UP CODE LÊN GITHUB
 
 **Bước 1:** Tải và cài đặt **Git Bash**: https://git-scm.com/downloads
 
