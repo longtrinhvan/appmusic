@@ -1,5 +1,6 @@
+# Hướng dẫn sử dụng git 
 
-* Item 1
-* Item 2
-  * Item 2a
-  * Item 2b
+
+
+## Cách tạo branches
+![image info](./pictures/image.png)
