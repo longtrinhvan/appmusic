@@ -35,8 +35,8 @@ public class SwaggerConfig {
 	public ApiInfo apiInfo() {
 		return new ApiInfo("WebAPI - Java Restful API",
 				"This is Restful API for Microservice", "V1.0",
-				"Hiep Si Mat Na Diend",
-				new Contact("Thanh Phi", "https://", "longtrinhvan97@gmail.com"),
+				"-----",
+				new Contact("Trịnh văn Long", "http://localhost:8080/swagger-ui.html#", "longtrinhvan97@gmail.com"),
 				"License of API", "API license URL", java.util.Collections.emptyList());
 	}
 }

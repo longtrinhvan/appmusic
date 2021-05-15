@@ -8,6 +8,17 @@ public class ConnectMysql {
 	  public final static String USER_NAME = "root";
 	  public final static String PASSWORD = "123456"; 
 	  
+	  
+	  private static ConnectMysql  _connectMysql = null;
+		
+		@SuppressWarnings("unused")
+		private static synchronized ConnectMysql GetMusicClient() {
+			if (_connectMysql == null) {
+				_connectMysql =  (ConnectMysql) ConnectMysql.getConnection(DB_URL, DB_URL, PASSWORD);
+			}
+			return _connectMysql;
+		}
+	  
 	  public static Connection getConnection(String dbURL, String userName, 
 	            String password) {
 	        Connection conn = null;

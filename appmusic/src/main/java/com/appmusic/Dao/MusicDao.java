@@ -7,14 +7,13 @@ import java.sql.Statement;
 import com.appmusic.common.ConnectMysql;
 import com.appmusic.model.Music;
 
-public class MusicDao extends ConnectMysql {
-
+public class MusicDao extends ConnectMysql { 
+	
 	public Music getmusic(int id) {
 		try {
-
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from music where id" + id);
+			ResultSet rs = stmt.executeQuery("select * from music where id =" + id);
 			while (rs.next()) {
 				Music music = new Music();
 				music.id = rs.getInt(1);
