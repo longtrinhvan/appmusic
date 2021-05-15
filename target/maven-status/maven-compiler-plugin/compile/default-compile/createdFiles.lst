@@ -1,0 +1,8 @@
+com\appmusic\AppmusicApplication.class
+com\appmusic\controller\ProductHelper.class
+com\appmusic\config\SwaggerConfig.class
+com\appmusic\ServletInitializer.class
+com\appmusic\model\Music.class
+com\appmusic\common\ConnectMysql.class
+com\appmusic\controller\ProductApiController.class
+com\appmusic\Dao\MusicDao.class
