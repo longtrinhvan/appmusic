@@ -9,14 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainController {
  
  
-    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
     public String index(Model model) {
- 
-        String message = "Hello Spring Boot + JSP";
- 
-        model.addAttribute("message", message);
- 
-        return "index";
+//        String message = "Hello Spring Boot + JSP";
+//        model.addAttribute("message", message);
+        return "login";
     }
 
 }
