@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- css -->
 <link href="<c:url value='/template/login/css/home.css' />"
 	rel="stylesheet" type="text/css" media="all" />
@@ -29,10 +31,15 @@
 						required>
 				</div>
 				<div class="submit-login">
-					<input type="submit" value="Đăng Nhập">
+					<input type="submit" id="btnAddOrUpdateNew" value="Đăng Nhập">
 				</div>
 			</form>
 		</div>
 	</div>
+	<script>
+	$('#btnAddOrUpdateNew').click(function(e) {
+		alert('aaaaaaaaaaaaaaaaaaaa');​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+	});
+	</script>
 </body>
 </html>
