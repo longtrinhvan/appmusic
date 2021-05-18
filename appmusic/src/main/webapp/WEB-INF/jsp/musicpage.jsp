@@ -3,11 +3,14 @@
 <%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="utf-8">
 <title>Music</title>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
+<script
+	src="<c:url value='/template/paging/jquery.twbsPagination.js' />"
+	type="text/javascript"></script>
 <!-- css -->
 <link href="<c:url value='/template/login/css/home.css' />"
 	rel="stylesheet" type="text/css" media="all" />
@@ -18,12 +21,21 @@
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
-	width: 100%;
+	width: 95%;
+	margin: 10px;
+	background-color: darkgray;
 }
 
-td, th {
+th {
+	background-color: darkgray;
+	padding: 10px;
 	border: 1px solid #dddddd;
-	text-align: left;
+	text-align: center;
+}
+
+td {
+	border: 1px solid #dddddd;
+	text-align: center;
 	padding: 8px;
 }
 
@@ -31,24 +43,167 @@ tr:nth-child(even) {
 	background-color: #dddddd;
 }
 </style>
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: white;
+	font-family: arial, sans-serif;
+	font-size: 14px;
+}
+
+.menu {
+	float: left;
+	height: 800px;
+	width: 15%;
+	background-color: teal;
+}
+
+.account {
+	width: 100%;
+	height: 200px;
+	background-color: transparent;
+}
+
+.account img {
+	margin-top: 2%;
+	margin-left: 15%;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: transparent;
+}
+
+.vertical-menu {
+	width: 100%;
+}
+
+.vertical-menu a {
+	background-color: #eee;
+	color: black;
+	display: block;
+	padding: 12px;
+	text-decoration: none;
+}
+
+.vertical-menu a:hover {
+	background-color: #ccc;
+}
+
+.vertical-menu a.active {
+	background-color: #04AA6D;
+	color: white;
+}
+
+.center {
+	float: left;
+	width: 85%;
+	height: 800px;
+}
+
+.center-mm1 {
+	float: left;
+	width: 60%;
+	height: 800px;
+}
+
+.center-mm2 {
+	float: left;
+	width: 40%;
+	height: 800px;
+}
+
+.img {
+	margin: 10px;
+	text-align: center;
+	padding: 10px;
+	background-color: turquoise;
+	border-radius: 5px;
+}
+
+.img iframe {
+	border-radius: 5px;
+}
+
+.audio {
+	margin: 10px;
+	text-align: center;
+	padding: 10px;
+	background-color: turquoise;
+	border-radius: 5px;
+}
+
+label {
+	margin: 10px;
+}
+
+input {
+	margin: 10px;
+	display: block;
+	width: 450px;
+	height: 40px;
+	border-radius: 3px;
+	border: 1px solid rgb(177, 177, 177);
+}
+
+.detail button {
+	float: right;
+	margin: 10px 57px 10px 10px;
+	width: 100px;
+	height: 40px;
+	border-radius: 3px;
+	color: cornsilk;
+	background-color: teal;
+}
+</style>
 </head>
+
 <body>
+	<div class="menu">
+		<div class="account"></div>
+		<div class="vertical-menu">
+			<a href="#" class="active">Home</a> <a href="#">Music</a> <a href="#">Account</a>
+			<a href="#">Logout</a>
+		</div>
+	</div>
+	<div class="center">
+		<div class="center-mm1">
+			<table>
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>name</th>
+						<th>image</th>
+						<th>Sửa</th>
+						<th>Xóa</th>
+					</tr>
+				</thead>
+				<tbody id="bidders">
 
-	<table>
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>name</th>
-				<th>url</th>
-				<th>image</th>
-				<th>Sửa</th>
-				<th>Xóa</th>
-			</tr>
-		</thead>
-		<tbody id="bidders">
-
-		</tbody>
-	</table>
+				</tbody>
+			</table>
+			<ul class="pagination" id="pagination"></ul>
+		</div>
+		<div class="center-mm2">
+			<div class="img">
+				<iframe
+					src="https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview"
+					width="300" height="300"></iframe>
+			</div>
+			<div class="audio">
+				<iframe
+					src="https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview"
+					width="470" height="70"></iframe>
+			</div>
+			<div class="detail">
+				<label>Name</label> <input type="text"> <label>Url</label> <input
+					type="text"> <label>Image</label> <input type="text">
+				<button>Lưu</button>
+			</div>
+		</div>
+	</div>
 	<script>
 		(function() {
 			$
@@ -71,10 +226,10 @@ tr:nth-child(even) {
 											+ '</td><td>'
 											+ name
 											+ '</td><td>'
-											+ url
-											+ '</td><td>'
-											+ image
-											+ '</td><td><a href="${editURL}"><i style="color: rgb(44, 142, 212); font-size: 18px;" class="fas fa-edit"></i></a></td><td><i class="fas fa-trash-alt"></i></td></tr>';
+											+ '<iframe src="https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview" width="140" height="140"></iframe>'
+											+ '</td><td><a href="http://localhost:8080/edit?id='
+											+ id
+											+ '"><i style="color: rgb(44, 142, 212); font-size: 18px;" class="fas fa-edit"></i></a></td><td><i class="fas fa-trash-alt"></i></td></tr>';
 								}
 								$('#bidders').append(trHTML);
 							});
@@ -82,4 +237,5 @@ tr:nth-child(even) {
 	</script>
 
 </body>
+
 </html>

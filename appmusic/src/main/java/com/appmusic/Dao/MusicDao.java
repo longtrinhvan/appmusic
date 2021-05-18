@@ -37,8 +37,8 @@ public class MusicDao extends ConnectMysql {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
-			var query = "SELECT * FROM appmusic.music \r\n" + "ORDER BY id ASC\r\n" + "LIMIT " + indexPage * 5 + ","
-					+ (indexPage + 1 * 5);
+			var query = "SELECT * FROM appmusic.music \r\n" + "ORDER BY id ASC\r\n" + "LIMIT " + indexPage * 4 + ","
+					+ (indexPage + 1 * 4);
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				Music music = new Music();
