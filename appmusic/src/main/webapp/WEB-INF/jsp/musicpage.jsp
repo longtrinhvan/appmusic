@@ -107,6 +107,7 @@ tr:nth-child(even) {
 	float: left;
 	width: 60%;
 	height: 800px;
+	font-size: 13px;
 }
 
 .center-mm2 {
@@ -146,6 +147,7 @@ input {
 	height: 40px;
 	border-radius: 3px;
 	border: 1px solid rgb(177, 177, 177);
+	padding-left: 15px;
 }
 
 .detail button {
@@ -153,6 +155,14 @@ input {
 	margin: 10px 57px 10px 10px;
 	width: 100px;
 	height: 40px;
+	border-radius: 3px;
+	color: cornsilk;
+	background-color: teal;
+}
+
+.show {
+	width: 70px;
+	height: 30px;
 	border-radius: 3px;
 	color: cornsilk;
 	background-color: teal;
@@ -173,9 +183,10 @@ input {
 			<table>
 				<thead>
 					<tr>
-						<th>id</th>
-						<th>name</th>
-						<th>image</th>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Category</th>
+						<th>Image</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
 					</tr>
@@ -184,23 +195,23 @@ input {
 
 				</tbody>
 			</table>
-			<ul class="pagination" id="pagination"></ul>
 		</div>
 		<div class="center-mm2">
 			<div class="img">
 				<iframe
 					src="https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview"
-					width="300" height="300"></iframe>
+					width="300" height="300" id="imageiframe"></iframe>
 			</div>
 			<div class="audio">
 				<iframe
 					src="https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview"
-					width="470" height="70"></iframe>
+					width="470" height="70" id="audio"></iframe>
 			</div>
 			<div class="detail">
-				<label>Name</label> <input type="text"> <label>Url</label> <input
-					type="text"> <label>Image</label> <input type="text">
+				<label>Name</label> <input type="text" id="name"> <label>Url</label>
+				<input type="text" id="url"> <label>Image</label> <input type="text" id="image">
 				<button>Lưu</button>
+				<button>Thêm</button>
 			</div>
 		</div>
 	</div>
@@ -219,6 +230,7 @@ input {
 								for (var i = 0; i < len; i++) {
 									var id = data[i].id;
 									var name = data[i].name;
+									var category = data[i].category;
 									var url = data[i].url;
 									var image = data[i].image;
 									trHTML += '<tr><td>'
@@ -226,14 +238,31 @@ input {
 											+ '</td><td>'
 											+ name
 											+ '</td><td>'
-											+ '<iframe src="https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview" width="140" height="140"></iframe>'
-											+ '</td><td><a href="http://localhost:8080/edit?id='
-											+ id
-											+ '"><i style="color: rgb(44, 142, 212); font-size: 18px;" class="fas fa-edit"></i></a></td><td><i class="fas fa-trash-alt"></i></td></tr>';
+											+ category
+											+ '</td><td>'
+											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
+											+ '</td><td> <button id="'+ id +'" class="show">Sửa</button> </td><td><i class="fas fa-trash-alt"></i></td></tr>';
 								}
 								$('#bidders').append(trHTML);
 							});
 		})();
+
+		$('.center-mm1').on(
+				'click',
+				'.show',
+				function(e) {
+					var url = "http://localhost:8080/apimusic/getmusic?id="
+							+ e.target.id;
+					$.getJSON(url, {
+						format : "json"
+					}).done(function(data) {
+						$('#name').val(data['name']);
+						$('#url').val(data['url']);
+						$('#image').val(data['image']);
+						$('#audio').attr('src',data['url']);   
+						$('#imageiframe').attr('src',data['image']);   
+					});
+				});
 	</script>
 
 </body>

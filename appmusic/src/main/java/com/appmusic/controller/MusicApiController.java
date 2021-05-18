@@ -30,7 +30,7 @@ public class MusicApiController {
 		Music music = null;
 		var status = HttpStatus.OK;
 		try {
-			music = musicDao.getMusic(1);
+			music = musicDao.getMusic(id);
 		} catch (Throwable e) {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 		}

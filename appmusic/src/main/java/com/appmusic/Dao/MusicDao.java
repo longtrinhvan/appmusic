@@ -20,8 +20,9 @@ public class MusicDao extends ConnectMysql {
 				Music music = new Music();
 				music.id = rs.getInt(1);
 				music.name = rs.getString(2);
-				music.url = rs.getString(3);
-				music.image = rs.getString(4);
+				music.category = rs.getString(3);
+				music.url = rs.getString(4);
+				music.image = rs.getString(5);
 				return music;
 			}
 			conn.close();
@@ -44,8 +45,9 @@ public class MusicDao extends ConnectMysql {
 				Music music = new Music();
 				music.id = rs.getInt(1);
 				music.name = rs.getString(2);
-				music.url = rs.getString(3);
-				music.image = rs.getString(4);
+				music.category = rs.getString(3);
+				music.url = rs.getString(4);
+				music.image = rs.getString(5);
 				result.add(music);
 			}
 			conn.close();
