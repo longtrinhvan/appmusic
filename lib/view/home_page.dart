@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import '../model/music.dart';
-import 'music_page.dart';
+import '../model/musics.dart';
+import '../screens/player.dart';
 import 'login_page.dart';
 import 'search_page.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   static String tag = 'home-page';
@@ -42,7 +43,7 @@ class _NavDrawerState extends State<HomePage> {
                 icon: Icon(Icons.search, color: Colors.white),
                 iconSize: 35,
                 onPressed: () {
-                  showSearch(context: context, delegate: Search(musics));
+                 // showSearch(context: context, delegate: Search(null));
                 })
           ],
           leading: new IconButton(
@@ -51,7 +52,15 @@ class _NavDrawerState extends State<HomePage> {
             color: Colors.white,
             onPressed: () => _scaffoldKey.currentState.openDrawer(),
           )),
-      body: BodyScreen(),
+      body: FutureBuilder<List<Music>>(
+        future: fetchMusics(http.Client()),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) print(snapshot.error);
+          return snapshot.hasData
+              ? BodyScreen(musics: snapshot.data)
+              : Center(child: CircularProgressIndicator());
+        },
+      ),
       drawer: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -93,7 +102,7 @@ class _NavDrawerState extends State<HomePage> {
                         fontSize: 17,
                         foreground: Paint()..shader = linearGradient)),
                 onTap: () {
-                  Navigator.of(context).pushNamed(MyMusicApp.tag);
+                  Navigator.of(context).pushNamed(Player.tag);
                 }),
             new ListTile(
                 leading: Icon(Icons.settings, color: Colors.white70),
@@ -131,9 +140,8 @@ class _NavDrawerState extends State<HomePage> {
 
 //ignore: must_be_immutable
 class BodyScreen extends StatelessWidget {
-  final List<Music> music;
-
-  BodyScreen({Key key, this.music}) : super(key: key);
+  final List<Music> musics;
+  BodyScreen({Key key, this.musics}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +166,7 @@ class BodyScreen extends StatelessWidget {
               return ListTile(
                 contentPadding: new EdgeInsets.fromLTRB(10, 5, 0, 0),
                 title: Text(
-                  musics[index].title,
+                  musics[index].name,
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 18,
@@ -171,7 +179,7 @@ class BodyScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MyMusicApp(),
+                      builder: (context) => Player(),
                       // Pass the arguments as part of the RouteSettings. The
                       // DetailScreen reads the arguments from these settings.
                       settings: RouteSettings(

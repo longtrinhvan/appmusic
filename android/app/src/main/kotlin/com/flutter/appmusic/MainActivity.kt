@@ -1,4 +1,4 @@
-package com.flutter.appmusic2
+package com.flutter.appmusic
 
 import io.flutter.embedding.android.FlutterActivity
 

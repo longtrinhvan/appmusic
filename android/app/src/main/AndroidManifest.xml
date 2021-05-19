@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flutter.appmusic2">
+    package="com.flutter.appmusic">
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- This Line -->
    <application
-        android:label="appmusic2"
+        android:label="appmusic"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

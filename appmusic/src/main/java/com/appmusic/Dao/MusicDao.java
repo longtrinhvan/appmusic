@@ -12,6 +12,31 @@ import com.appmusic.model.Music;
 
 public class MusicDao extends ConnectMysql {
 
+	public List<Music> getAllMusic() {
+
+		var result = new ArrayList<Music>();
+		try {
+			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
+			Statement stmt = conn.createStatement();
+			var query = "SELECT * FROM music WHERE isdelete = 4 ";
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				Music music = new Music();
+				music.id = rs.getInt(1);
+				music.name = rs.getString(2);
+				music.category = rs.getString(3);
+				music.url = rs.getString(4);
+				music.image = rs.getString(5);
+				music.isdelete = rs.getInt(6);
+				result.add(music);
+			}
+			conn.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return result;
+	}
+
 	public Music getMusic(int id) {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);

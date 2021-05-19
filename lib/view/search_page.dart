@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/music.dart';
-import 'music_page.dart';
-
+import '../model/musics.dart';
+import '../screens/player.dart';
 class Search extends SearchDelegate<String> {
   final List<Music> musics;
 
@@ -40,7 +39,7 @@ class Search extends SearchDelegate<String> {
     return ListView.builder(
       itemBuilder: (context, index) => ListTile(
         title: Text(
-          musics[index].title,
+          musics[index].name,
           style: TextStyle(
             fontSize: 17,
           ),
@@ -57,7 +56,7 @@ class Search extends SearchDelegate<String> {
     final suggestionList = query.isEmpty
         ? musics
         : musics
-            .where((p) => p.title.contains(RegExp(query, caseSensitive: false)))
+            .where((p) => p.name.contains(RegExp(query, caseSensitive: false)))
             .toList();
 
     return ListView.builder(
@@ -66,7 +65,7 @@ class Search extends SearchDelegate<String> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MyMusicApp(),
+              builder: (context) => Player(),
               settings: RouteSettings(
                 arguments: suggestionList[index],
               ),
@@ -75,12 +74,12 @@ class Search extends SearchDelegate<String> {
         },
         title: RichText(
           text: TextSpan(
-              text: suggestionList[index].title.substring(0, query.length),
+              text: suggestionList[index].name.substring(0, query.length),
               style: TextStyle(
                   fontSize: 17, color: Colors.red, fontWeight: FontWeight.bold),
               children: [
                 TextSpan(
-                    text: suggestionList[index].title.substring(query.length),
+                    text: suggestionList[index].name.substring(query.length),
                     style: TextStyle(fontSize: 17, color: Colors.grey)),
               ]),
         ),

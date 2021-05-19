@@ -26,6 +26,18 @@ public class MusicApiController {
 		musicDao = new MusicDao();
 	}
 
+	@RequestMapping(value = "/getallmusic", method = RequestMethod.GET)
+	public ResponseEntity<List<Music>> getAllMusic() {
+		List<Music> music = null;
+		var status = HttpStatus.OK;
+		try {
+			music = musicDao.getAllMusic();
+		} catch (Throwable e) {
+			status = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		return new ResponseEntity<>(music, null, status);
+	}
+
 	@RequestMapping(value = "/getmusic", method = RequestMethod.GET)
 	public ResponseEntity<Music> getMusic(int id) {
 		Music music = null;
@@ -51,7 +63,7 @@ public class MusicApiController {
 	}
 
 	@RequestMapping(value = "/deletemusic", method = RequestMethod.POST)
-	public ResponseEntity<String> deleteMusic(@RequestBody Music music ) {
+	public ResponseEntity<String> deleteMusic(@RequestBody Music music) {
 		var result = "deletesuccess";
 		var status = HttpStatus.OK;
 		try {
