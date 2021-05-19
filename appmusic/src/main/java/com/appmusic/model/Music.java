@@ -7,5 +7,6 @@ public class Music {
 	public String category;
 	public String url;
 	public String image;
+	public int isdelete;
 	
 }

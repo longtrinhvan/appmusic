@@ -8,8 +8,13 @@ CREATE TABLE music (
   category varchar(700) DEFAULT NULL,
   url varchar(700) DEFAULT NULL,
   image varchar(700) DEFAULT NULL,
+  isdelete int DEFAULT NULL,
   PRIMARY KEY (id)
 );
+SELECT * FROM appmusic.music ORDER BY id DESC LIMIT 5,10;
+DELETE FROM music
+WHERE id= 1;
+SELECT *from  music;
 INSERT INTO `appmusic`.`music`(`id`,`name`,`category`,`url`,`image`)
 VALUES(1,'Có Chắc Yêu Là Đây','Nhạc Trẻ','https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview');
 INSERT INTO `appmusic`.`music`(`id`,`name`,`category`,`url`,`image`)

@@ -167,6 +167,12 @@ input {
 	color: cornsilk;
 	background-color: teal;
 }
+
+.showhai {
+	width: 70px;
+	height: 40px;
+	background-color: transparent;
+}
 </style>
 </head>
 
@@ -210,9 +216,9 @@ input {
 			<div class="detail">
 				<label>Name</label> <input type="text" id="name"> <label>Url</label>
 				<input type="text" id="url"> <label>Image</label> <input
-					type="text" id="image">
-				<button>Save</button>
-				<button>Create</button>
+					type="text" id="image"> <input type="hidden" id="id">
+				<button onclick="updateMusic()">Save</button>
+				<button onclick="createMusic()">Create</button>
 			</div>
 		</div>
 	</div>
@@ -243,8 +249,12 @@ input {
 											+ '</td><td>'
 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
 											+ '</td><td>'
-											+ '<i class="fas fa-trash-alt" style="color: rgb(206, 30, 30)" ></i>'
-											+ '</td><td> <button id="'+ id +'" class="show">Edit</button> </td></tr>';
+											+ '<button class="showhai" onclick="deleteMusic('
+											+ id
+											+ ')" ><i class="fas fa-trash-alt" style="color: rgb(206, 30, 30)" ></i></button>'
+											+ '</td><td>'
+											+ '<button id="'+ id +'" class="show">Edit</button> '
+											+ '</td></tr>';
 								}
 								$('#bidders').append(trHTML);
 							});
@@ -259,6 +269,7 @@ input {
 					$.getJSON(url, {
 						format : "json"
 					}).done(function(data) {
+						$('#id').val(data['id']);
 						$('#name').val(data['name']);
 						$('#url').val(data['url']);
 						$('#image').val(data['image']);
@@ -266,6 +277,52 @@ input {
 						$('#imageiframe').attr('src', data['image']);
 					});
 				});
+
+		function deleteMusic(id) {
+			var data = {};
+			data['id'] = id;
+			$.ajax({
+				url : 'http://localhost:8080/apimusic/deletemusic',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : "json"
+			});
+			window.location.href = "http://localhost:8080/music";
+		}
+
+		function createMusic() {
+			var music = {};
+			music['name'] = $('#name').val();
+			music['url'] = $('#url').val();
+			music['image'] = $('#image').val();
+			music['isdelete'] = 0;
+			$.ajax({
+				url : 'http://localhost:8080/apimusic/insertmusic',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(music),
+				dataType : "json"
+			});
+			window.location.href = "http://localhost:8080/music";
+		}
+
+		function updateMusic() {
+			var music = {};
+			music['id'] = $('#id').val();
+			music['name'] = $('#name').val();
+			music['url'] = $('#url').val();
+			music['image'] = $('#image').val();
+			music['isdelete'] = 0;
+			$.ajax({
+				url : 'http://localhost:8080/apimusic/updatemusic',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(music),
+				dataType : "json"
+			});
+			window.location.href = "http://localhost:8080/music";
+		}
 	</script>
 
 </body>
