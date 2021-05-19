@@ -162,7 +162,7 @@ input {
 
 .show {
 	width: 70px;
-	height: 30px;
+	height: 27px;
 	border-radius: 3px;
 	color: cornsilk;
 	background-color: teal;
@@ -209,9 +209,10 @@ input {
 			</div>
 			<div class="detail">
 				<label>Name</label> <input type="text" id="name"> <label>Url</label>
-				<input type="text" id="url"> <label>Image</label> <input type="text" id="image">
-				<button>Lưu</button>
-				<button>Thêm</button>
+				<input type="text" id="url"> <label>Image</label> <input
+					type="text" id="image">
+				<button>Save</button>
+				<button>Create</button>
 			</div>
 		</div>
 	</div>
@@ -241,7 +242,9 @@ input {
 											+ category
 											+ '</td><td>'
 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
-											+ '</td><td> <button id="'+ id +'" class="show">Sửa</button> </td><td><i class="fas fa-trash-alt"></i></td></tr>';
+											+ '</td><td>'
+											+ '<i class="fas fa-trash-alt" style="color: rgb(206, 30, 30)" ></i>'
+											+ '</td><td> <button id="'+ id +'" class="show">Edit</button> </td></tr>';
 								}
 								$('#bidders').append(trHTML);
 							});
@@ -259,8 +262,8 @@ input {
 						$('#name').val(data['name']);
 						$('#url').val(data['url']);
 						$('#image').val(data['image']);
-						$('#audio').attr('src',data['url']);   
-						$('#imageiframe').attr('src',data['image']);   
+						$('#audio').attr('src', data['url']);
+						$('#imageiframe').attr('src', data['image']);
 					});
 				});
 	</script>
