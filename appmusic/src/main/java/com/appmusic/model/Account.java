@@ -1,13 +1,11 @@
 package com.appmusic.model;
 
-public class Music {
+public class Account {
 
 	public int id;
+	public int idrole;
 	public String name;
-	public Album album;
-	public Category category;
-	public String url;
+	public String password;
 	public String image;
 	public int isdelete;
-
 }

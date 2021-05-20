@@ -191,6 +191,7 @@ input {
 					<tr>
 						<th>Id</th>
 						<th>Name</th>
+						<th>Album</th>
 						<th>Category</th>
 						<th>Image</th>
 						<th>Sửa</th>
@@ -206,7 +207,7 @@ input {
 			<div class="img">
 				<iframe
 					src="https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview"
-					width="300" height="300" id="imageiframe"></iframe>
+					width="270" height="270" id="imageiframe"></iframe>
 			</div>
 			<div class="audio">
 				<iframe
@@ -237,7 +238,10 @@ input {
 								for (var i = 0; i < len; i++) {
 									var id = data[i].id;
 									var name = data[i].name;
-									var category = data[i].category;
+									var idcategory = data[i].category.idcategory;
+									var namecategory = data[i].category.namecategory;
+									var idalbum = data[i].album.idalbum;
+									var namealbum = data[i].album.namealbum;
 									var url = data[i].url;
 									var image = data[i].image;
 									trHTML += '<tr><td>'
@@ -245,7 +249,9 @@ input {
 											+ '</td><td>'
 											+ name
 											+ '</td><td>'
-											+ category
+											+ namealbum
+											+ '</td><td>'
+											+ namecategory
 											+ '</td><td>'
 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
 											+ '</td><td>'

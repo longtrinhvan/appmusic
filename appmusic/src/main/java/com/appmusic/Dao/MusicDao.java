@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.appmusic.common.ConnectMysql;
+import com.appmusic.model.Album;
+import com.appmusic.model.Category;
 import com.appmusic.model.Music;
 
 public class MusicDao extends ConnectMysql {
@@ -18,16 +20,26 @@ public class MusicDao extends ConnectMysql {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
-			var query = "SELECT * FROM music WHERE isdelete = 4 ";
+			var query = "SELECT * FROM music as m, category as c,album as a\r\n"
+					+ "WHERE c.idcategory = m.idcategory and a.idalbum = m.idalbum and m.isdelete = 4;";
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				Music music = new Music();
-				music.id = rs.getInt(1);
-				music.name = rs.getString(2);
-				music.category = rs.getString(3);
-				music.url = rs.getString(4);
-				music.image = rs.getString(5);
-				music.isdelete = rs.getInt(6);
+				music.id = rs.getInt("id");
+				music.name = rs.getString("name");
+				music.url = rs.getString("url");
+				music.image = rs.getString("image");
+				music.isdelete = rs.getInt("isdelete");
+				//
+				Category category = new Category();
+				category.idcategory = rs.getInt("idcategory");
+				category.namecategory = rs.getString("namecategory");
+				music.category = category;
+				//
+				Album album = new Album();
+				album.idalbum = rs.getInt("idalbum");
+				album.namealbum = rs.getString("namealbum");
+				music.album = album;
 				result.add(music);
 			}
 			conn.close();
@@ -41,15 +53,25 @@ public class MusicDao extends ConnectMysql {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from music where id =" + id);
+			ResultSet rs = stmt.executeQuery("SELECT * FROM music as m, category as c,album as a "
+					+ "WHERE c.idcategory = m.idcategory and a.idalbum = m.idalbum and m.id =" + id);
 			while (rs.next()) {
 				Music music = new Music();
-				music.id = rs.getInt(1);
-				music.name = rs.getString(2);
-				music.category = rs.getString(3);
-				music.url = rs.getString(4);
-				music.image = rs.getString(5);
-				music.isdelete = rs.getInt(6);
+				music.id = rs.getInt("id");
+				music.name = rs.getString("name");
+				music.url = rs.getString("url");
+				music.image = rs.getString("image");
+				music.isdelete = rs.getInt("isdelete");
+				//
+				Category category = new Category();
+				category.idcategory = rs.getInt("idcategory");
+				category.namecategory = rs.getString("namecategory");
+				music.category = category;
+				//
+				Album album = new Album();
+				album.idalbum = rs.getInt("idalbum");
+				album.namealbum = rs.getString("namealbum");
+				music.album = album;
 				return music;
 			}
 			conn.close();
@@ -65,17 +87,27 @@ public class MusicDao extends ConnectMysql {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
-			var query = "SELECT * FROM appmusic.music WHERE isdelete = 0 ORDER BY id DESC LIMIT " + indexPage * 4 + ","
-					+ (indexPage + 1 * 4);
+			var query = "SELECT * FROM music as m, category as c,album as a "
+					+ "WHERE c.idcategory = m.idcategory and a.idalbum = m.idalbum and  m.isdelete = 0 ORDER BY m.id DESC LIMIT "
+					+ indexPage * 4 + "," + (indexPage + 1 * 4);
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				Music music = new Music();
-				music.id = rs.getInt(1);
-				music.name = rs.getString(2);
-				music.category = rs.getString(3);
-				music.url = rs.getString(4);
-				music.image = rs.getString(5);
-				music.isdelete = rs.getInt(6);
+				music.id = rs.getInt("id");
+				music.name = rs.getString("name");
+				music.url = rs.getString("url");
+				music.image = rs.getString("image");
+				music.isdelete = rs.getInt("isdelete");
+				//
+				Category category = new Category();
+				category.idcategory = rs.getInt("idcategory");
+				category.namecategory = rs.getString("namecategory");
+				music.category = category;
+				//
+				Album album = new Album();
+				album.idalbum = rs.getInt("idalbum");
+				album.namealbum = rs.getString("namealbum");
+				music.album = album;
 				result.add(music);
 			}
 			conn.close();
@@ -103,36 +135,38 @@ public class MusicDao extends ConnectMysql {
 	public String updateMusic(Music music) {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
-			String query = " update music set name = ?, category = ?, url= ?, image = ? where id = ?";
+			String query = " update music set name = ?, idalbum =?, idcategory = ?, url= ?, image = ? where id = ?";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
 			preparedStmt.setString(1, music.name);
-			preparedStmt.setString(2, music.category);
-			preparedStmt.setString(3, music.url);
-			preparedStmt.setString(4, music.image);
-			preparedStmt.setInt(5, music.id);
+			preparedStmt.setInt(2, music.album.idalbum);
+			preparedStmt.setInt(3, music.category.idcategory);
+			preparedStmt.setString(4, music.url);
+			preparedStmt.setString(5, music.image);
+			preparedStmt.setInt(6, music.id);
 			preparedStmt.execute();
 			conn.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return "deletesuccess ";
+		return "updatesuccess ";
 	}
 
 	public String insertMusic(Music music) {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
-			String query = " INSERT INTO music(name,category,url,image,isdelete) VALUES(?,?,?,?,?)";
+			String query = " INSERT INTO music(name,idalbum,idcategory,url,image,isdelete) VALUES(?,?,?,?,?,?)";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
 			preparedStmt.setString(1, music.name);
-			preparedStmt.setString(2, music.category);
-			preparedStmt.setString(3, music.url);
-			preparedStmt.setString(4, music.image);
-			preparedStmt.setInt(5, 0);
+			preparedStmt.setInt(2, music.album.idalbum);
+			preparedStmt.setInt(3, music.category.idcategory);
+			preparedStmt.setString(4, music.url);
+			preparedStmt.setString(5, music.image);
+			preparedStmt.setInt(6, 0);
 			preparedStmt.execute();
 			conn.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return "deletesuccess ";
+		return "insertsuccess ";
 	}
 }
