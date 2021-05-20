@@ -19,18 +19,23 @@ List<Music> parseMusics(String responseBody) {
 
   return parsed.map<Music>((json) => Music.fromJson(json)).toList();
 }
-
 class Music {
   final int id;
   final String name;
-  final String category;
+  final int idalbum;
+  final String namealbum;
+  final int idcategory;
+  final String namecategory;
   final String url;
   final String image;
   final int isdelete;
   Music({
     this.id,
     this.name,
-    this.category,
+    this.idalbum,
+    this.namealbum,
+    this.idcategory,
+    this.namecategory,
     this.url,
     this.image,
     this.isdelete,
@@ -40,7 +45,10 @@ class Music {
     return Music(
       id: json['id'] as int,
       name: json['name'] as String,
-      category: json['category'] as String,
+      idalbum: json['album.idalbum'] as int,
+      namealbum: json['album.namealbum'] as String,
+      idcategory: json['album.idcategory'] as int,
+      namecategory: json['album.namecategory'] as String,
       url: json['url'] as String,
       image: json['image'] as String,
       isdelete: json['isdelete'] as int,
