@@ -1,3 +1,4 @@
+import 'package:appmusic/domain/audio_metadata.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -8,6 +9,7 @@ class PlayerButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -109,9 +111,10 @@ class PlayerButtons extends StatelessWidget {
 
   /// A next button. Tapping it will seek to the next audio in the list.
   Widget _nextButton() {
+
     return IconButton(
       icon: Icon(Icons.skip_next),
-      onPressed: _audioPlayer.hasNext ? _audioPlayer.seekToNext : null,
+      onPressed: _audioPlayer.hasNext ? _audioPlayer.seekToNext : null ,
     );
   }
 

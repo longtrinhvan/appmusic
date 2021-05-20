@@ -43,7 +43,7 @@ class _NavDrawerState extends State<HomePage> {
                 icon: Icon(Icons.search, color: Colors.white),
                 iconSize: 35,
                 onPressed: () {
-                 // showSearch(context: context, delegate: Search(null));
+                  // showSearch(context: context, delegate: Search(null));
                 })
           ],
           leading: new IconButton(
@@ -180,10 +180,8 @@ class BodyScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => Player(),
-                      // Pass the arguments as part of the RouteSettings. The
-                      // DetailScreen reads the arguments from these settings.
                       settings: RouteSettings(
-                        arguments: musics[index],
+                        arguments: listMusic(index),
                       ),
                     ),
                   );
@@ -194,5 +192,27 @@ class BodyScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  List<Music> listMusic(index) {
+    List<Music> ds =[];
+    Music y = musics[index];
+    bool flag = false;
+
+    for (Music x in musics) {
+      if (y.id == x.id) {
+        flag = true;
+      }
+      if (flag == true) {
+        ds.add(x);
+      }
+    }
+    for (Music x in musics) {
+      if (y.id == x.id) {
+        break;
+      }
+      ds.add(x);
+    }
+    return ds;
   }
 }

@@ -13,6 +13,7 @@ import '../domain/audio_metadata.dart';
 import '../screens/commons/buttons_player.dart';
 import '../screens/commons/background_player.dart';
 import '../model/musics.dart';
+
 /// An audio player.
 ///
 /// At the bottom of the page there is [PlayerButtons], while the rest of the
@@ -40,31 +41,31 @@ class _PlayerState extends State<Player> {
 
   @override
   Widget build(BuildContext context) {
-    Music pro = ModalRoute.of(context).settings.arguments;
-    _audioPlayer.setAudioSource(
-      ConcatenatingAudioSource(
-        children: [
-          AudioSource.uri(
-            Uri.parse(
-                "${pro.url}"),
-            tag: AudioMetadata(
-              title: "${pro.name}",
-              artwork:
+    List<Music> pro = ModalRoute.of(context).settings.arguments;
+
+    final _playlist = ConcatenatingAudioSource(
+      children: [],
+    );
+
+    for (int i = 0; i < pro.length; i++) {
+      AudioSource x = AudioSource.uri(
+        Uri.parse(pro[i.toInt()].url),
+        tag: AudioMetadata(
+          title: pro[i.toInt()].name,
+          artwork:
               "https://upload.wikimedia.org/wikipedia/en/3/3a/Diablo_Coverart.png",
-            ),
-          ),
-        ],
-      ),
-    ) .catchError((error) {
-      // catch load errors: 404, invalid url ...
-      print("An error occured $error");
+        ),
+      );
+      _playlist.add(x);
+    }
+    _audioPlayer.setAudioSource(_playlist).catchError((error) {
     });
     return Scaffold(
       body: Center(
         child: SafeArea(
           child: Column(
             children: [
-              Expanded(child: BackgroundPlayer(pro.name)),
+              Expanded(child: BackgroundPlayer(_audioPlayer)),
               PlayerButtons(_audioPlayer),
             ],
           ),

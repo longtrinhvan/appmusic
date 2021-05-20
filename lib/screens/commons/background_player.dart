@@ -6,18 +6,18 @@
  * -----
  * Copyright (c) 2021 Michele Volpato
  */
+import 'package:just_audio/just_audio.dart';
 import 'package:appmusic/view/home_page.dart';
 import 'package:flutter/material.dart';
+
 /// A list of tiles showing all the audio sources added to the audio player.
 ///
 /// Audio sources are displayed with a `ListTile` with a leading image (the
 /// artwork), and the title of the audio source.
 class BackgroundPlayer extends StatelessWidget {
+  const BackgroundPlayer(this._audioPlayer, {Key key}) : super(key: key);
 
-  final String name;
-  BackgroundPlayer(this.name);
-
-
+  final AudioPlayer _audioPlayer;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class BackgroundPlayer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 IconButton(
-                  padding: EdgeInsets.only( left: 20),
+                  padding: EdgeInsets.only(left: 20),
                   iconSize: 40.0,
                   color: Colors.white,
                   onPressed: () {
@@ -73,16 +73,23 @@ class BackgroundPlayer extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Center(
-                          child: Text(
-                            name,
-                            style: TextStyle(
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                        StreamBuilder<SequenceState>(
+                            stream: _audioPlayer.sequenceStateStream,
+                            builder: (context, snapshot) {
+                              final state = snapshot.data;
+                              final sequence = state?.sequence ?? [];
+                              int i = state.currentIndex;
+                              return Center(
+                                child: Text(
+                                  sequence[i].tag.title,
+                                  style: TextStyle(
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              );
+                            }),
                         SizedBox(
                           height: 150.0,
                         ),
