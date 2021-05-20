@@ -297,7 +297,6 @@ input {
 				<div class="id_100">
 					<label>Category Music</label> <select name="categorymusic"
 						id="categorymusic">
-
 					</select>
 				</div>
 				<label>Name</label> <input type="text" id="name"> <label>Url</label>
@@ -365,12 +364,33 @@ input {
 								for (var i = 0; i < len; i++) {
 									var idcategory = data[i].idcategory;
 									var namecategory = data[i].namecategory;
-									trHTML += "<option value=" + idcategory + "value" +">"
+									trHTML += "<option value=" + "value" + idcategory +">"
 											+ namecategory + "</option>";
 								}
 								$('#categorymusic').append(trHTML);
 							});
 		})();
+
+		$('.id_100').on('click', '#categorymusic', function(e) {
+			var str = $("#categorymusic option:selected").val();
+			$('#idcategorymusic').val(str.slice(5, str.length));
+		});
+
+		$('#div-searchalbum-1')
+				.on(
+						'click',
+						'button',
+						function(e) {
+							var url = "http://localhost:8080/apialbum/searchnamealbum?namealbum="
+									+ $('#searchalbum').val();
+							;
+							$.getJSON(url, {
+								format : "json"
+							}).done(function(data) {
+								$('#idalbummusic').val(data.idalbum);
+								$('#album').val(data.namealbum);
+							});
+						});
 
 		$('.center-mm1').on(
 				'click',
@@ -382,6 +402,7 @@ input {
 						format : "json"
 					}).done(
 							function(data) {
+
 								$('#id').val(data['id']);
 								$('#name').val(data['name']);
 								$('#url').val(data['url']);
@@ -390,7 +411,7 @@ input {
 								$('#imageiframe').attr('src', data['image']);
 								$('#album').val(data['album'].namealbum);
 								$("div.id_100 select").val(
-										data['category'].idcategory + "value");
+										"value" + data['category'].idcategory);
 								$('#idcategorymusic').val(
 										data['category'].idcategory);
 								$('#idalbummusic').val(data['album'].idalbum);
