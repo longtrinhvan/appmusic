@@ -4,42 +4,42 @@ CREATE DATABASE appmusic;
 USE appmusic;
 
 CREATE TABLE album(
-  id int NOT NULL AUTO_INCREMENT,
-  name varchar(100) DEFAULT NULL,
-  PRIMARY KEY (id)
+  idalbum int NOT NULL AUTO_INCREMENT,
+  namealbum varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idalbum)
 );
-INSERT INTO `appmusic`.`album`(`id`,`name`)
+INSERT INTO `appmusic`.`album`(`idalbum`,`namealbum`)
 VALUES('1','album 1');
-INSERT INTO `appmusic`.`album`(`id`,`name`)
+INSERT INTO `appmusic`.`album`(`idalbum`,`namealbum`)
 VALUES('2','album 2');
-INSERT INTO `appmusic`.`album`(`id`,`name`)
+INSERT INTO `appmusic`.`album`(`idalbum`,`namealbum`)
 VALUES('3','album 3');
-INSERT INTO `appmusic`.`album`(`id`,`name`)
+INSERT INTO `appmusic`.`album`(`idalbum`,`namealbum`)
 VALUES('4','album 4');
-INSERT INTO `appmusic`.`album`(`id`,`name`)
+INSERT INTO `appmusic`.`album`(`idalbum`,`namealbum`)
 VALUES('5','album 5');
-INSERT INTO `appmusic`.`album`(`id`,`name`)
+INSERT INTO `appmusic`.`album`(`idalbum`,`namealbum`)
 VALUES('6','album 6');
 
 CREATE TABLE category (
-  id int NOT NULL AUTO_INCREMENT,
-  name varchar(100) DEFAULT NULL,
-  PRIMARY KEY (id)
+  idcategory int NOT NULL AUTO_INCREMENT,
+  namecategory varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idcategory)
 );
 
-INSERT INTO `appmusic`.`category`(`id`,`name`)
+INSERT INTO `appmusic`.`category`(`idcategory`,`namecategory`)
 VALUES('1','rock');
-INSERT INTO `appmusic`.`category`(`id`,`name`)
+INSERT INTO `appmusic`.`category`(`idcategory`,`namecategory`)
 VALUES('2','pop');
-INSERT INTO `appmusic`.`category`(`id`,`name`)
+INSERT INTO `appmusic`.`category`(`idcategory`,`namecategory`)
 VALUES('3','jazz');
-INSERT INTO `appmusic`.`category`(`id`,`name`)
+INSERT INTO `appmusic`.`category`(`idcategory`,`namecategory`)
 VALUES('4','R&B');
-INSERT INTO `appmusic`.`category`(`id`,`name`)
+INSERT INTO `appmusic`.`category`(`idcategory`,`namecategory`)
 VALUES('5','hip hop');
-INSERT INTO `appmusic`.`category`(`id`,`name`)
+INSERT INTO `appmusic`.`category`(`idcategory`,`namecategory`)
 VALUES('6','dance');
-INSERT INTO `appmusic`.`category`(`id`,`name`)
+INSERT INTO `appmusic`.`category`(`idcategory`,`namecategory`)
 VALUES('7','Latinh');
 
 CREATE TABLE music (
@@ -51,9 +51,16 @@ CREATE TABLE music (
   image varchar(700) DEFAULT NULL,
   isdelete int DEFAULT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (idalbum) REFERENCES album(id),
-  FOREIGN KEY (idcategory) REFERENCES category(id)
+  FOREIGN KEY (idalbum) REFERENCES album(idalbum),
+  FOREIGN KEY (idcategory) REFERENCES category(idcategory)
 );
+
+SELECT * FROM music as m, category as c,album as a 
+WHERE c.id = m.idcategory and a.id = m.idalbum and  m.isdelete = 0 
+ORDER BY m.id DESC LIMIT 0,4;
+
+SELECT * FROM music as m, category as c,album as a
+WHERE c.id = m.idcategory and a.id = m.idalbum and m.isdelete = 4;
 
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
 VALUES(1,'Có Chắc Yêu Là Đây',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',1);
@@ -68,7 +75,7 @@ VALUES(5,'Something Just Like This',2,1,'https://drive.google.com/file/d/1e7gszN
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
 VALUES(6,'Phao - 2 Phut Hon',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(7,'XIN ĐỪNG NHẤC MÁY',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+VALUES(7,'XIN ĐỪNG NHẤC MÁY',3,3,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
 VALUES(8,'Exs Hate Me - B Ray x Masew ',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
 
@@ -124,7 +131,7 @@ VALUES(2,2,'sang','123456','acount.jpg',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`password`,`image`,`isdelete`)
 VALUES(3,2,'hung','123456','acount.jpg',0);
 
-
+SELECT * FROM album WHERE namealbum LIKE 'album%' limit 3;
 update music set isdelete = 1  where id = 1;
 DELETE FROM music
 WHERE id= 1 ;
