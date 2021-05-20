@@ -14,10 +14,6 @@ import '../screens/commons/buttons_player.dart';
 import '../screens/commons/background_player.dart';
 import '../model/musics.dart';
 
-/// An audio player.
-///
-/// At the bottom of the page there is [PlayerButtons], while the rest of the
-/// page is filled with a [PLaylist] widget.
 class Player extends StatefulWidget {
   static String tag = 'play-page';
   @override
@@ -53,7 +49,7 @@ class _PlayerState extends State<Player> {
         tag: AudioMetadata(
           title: pro[i.toInt()].name,
           artwork:
-              "https://upload.wikimedia.org/wikipedia/en/3/3a/Diablo_Coverart.png",
+          pro[i.toInt()].image,
         ),
       );
       _playlist.add(x);

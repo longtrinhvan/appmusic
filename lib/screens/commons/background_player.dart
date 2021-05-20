@@ -23,63 +23,66 @@ class BackgroundPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //let's start by creating the main UI of the app
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/image/background.jpg"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.only(
-            top: 28.0,
-          ),
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                IconButton(
-                  padding: EdgeInsets.only(left: 20),
-                  iconSize: 40.0,
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(HomePage.tag);
-                  },
-                  icon: Icon(
-                    Icons.arrow_back,
-                  ),
+      body: StreamBuilder<SequenceState>(
+          stream: _audioPlayer.sequenceStateStream,
+          builder: (context, snapshot) {
+            final state = snapshot.data;
+            final sequence = state?.sequence ?? [];
+            int i = state.currentIndex;
+            return Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/image/background.jpg"),
+                  fit: BoxFit.cover,
                 ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Center(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(500.0),
-                              child: Image.asset(
-                                "assets/image/alucard.jpg",
-                                width: 306.0,
-                                height: 306.0,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: 28.0,
+                ),
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        padding: EdgeInsets.only(left: 20),
+                        iconSize: 40.0,
+                        color: Colors.white,
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(HomePage.tag);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
                         ),
-                        StreamBuilder<SequenceState>(
-                            stream: _audioPlayer.sequenceStateStream,
-                            builder: (context, snapshot) {
-                              final state = snapshot.data;
-                              final sequence = state?.sequence ?? [];
-                              int i = state.currentIndex;
-                              return Center(
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Center(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(500.0),
+                                    child: Image.network(
+                                      sequence[i].tag.artwork,
+                                      width: 306.0,
+                                      height: 306.0,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 50.0,
+                              ),
+                              Center(
                                 child: Text(
                                   sequence[i].tag.title,
                                   style: TextStyle(
@@ -88,23 +91,23 @@ class BackgroundPlayer extends StatelessWidget {
                                     color: Colors.white,
                                   ),
                                 ),
-                              );
-                            }),
-                        SizedBox(
-                          height: 150.0,
+                              ),
+                              SizedBox(
+                                height: 100.0,
+                              ),
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
-      ),
+              ),
+            );
+          }),
     );
   }
 }
