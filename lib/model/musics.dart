@@ -1,24 +1,28 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:connectivity/connectivity.dart';
 
 Future<List<Music>> fetchMusics(http.Client client) async {
-  final response = await client
-      .get(Uri.parse('http://192.168.1.10:8080/apimusic/getallmusic'));
-
-  // Use the compute function to run parsePhotos in a separate isolate.
-  return compute(parseMusics, response.body);
+  var connectivityResult = await (Connectivity().checkConnectivity());
+  if (connectivityResult == ConnectivityResult.mobile) {
+    final response = await client
+        .get(Uri.parse('http://192.168.43.118:8080/apimusic/getallmusic'));
+    return compute(parseMusics, response.body);
+  } else if (connectivityResult == ConnectivityResult.wifi) {
+    final response = await client
+        .get(Uri.parse('http://192.168.1.10:8080/apimusic/getallmusic'));
+    return compute(parseMusics, response.body);
+  }
 }
 
-// A function that converts a response body into a List<Photo>.
 List<Music> parseMusics(String responseBody) {
   final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
 
   return parsed.map<Music>((json) => Music.fromJson(json)).toList();
 }
+
 class Music {
   final int id;
   final String name;

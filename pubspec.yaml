@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  wifi_info_flutter: ^2.0.0
   # Play music files
   just_audio: ^0.6.13
   # The following adds the Cupertino Icons font to your application.
@@ -31,6 +32,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   # lib for adding sound
   http: ^0.13.3
+  get_ip: ^0.4.0
+  connectivity: ^3.0.4
 
 dev_dependencies:
   flutter_test:
