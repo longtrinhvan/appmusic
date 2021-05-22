@@ -62,6 +62,18 @@ public class MusicApiController {
 		return new ResponseEntity<>(music, null, status);
 	}
 
+	@RequestMapping(value = "/searchmusicpagesize", method = RequestMethod.GET)
+	public ResponseEntity<List<Music>> searchMusicpageSize(String name) {
+		List<Music> music = null;
+		var status = HttpStatus.OK;
+		try {
+			music = musicDao.searchMusicpageSize(name);
+		} catch (Throwable e) {
+			status = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		return new ResponseEntity<>(music, null, status);
+	}
+
 	@RequestMapping(value = "/deletemusic", method = RequestMethod.POST)
 	public ResponseEntity<String> deleteMusic(@RequestBody Music music) {
 		var result = "deletesuccess";

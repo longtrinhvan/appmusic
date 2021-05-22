@@ -29,6 +29,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 			Login.account.name = account.name;
 			Login.account.id = account.id;
 			Login.account.image = account.image;
+			Login.account.fullname = account.fullname;
 		} catch (Exception e) {
 
 		}

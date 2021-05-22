@@ -117,6 +117,42 @@ public class MusicDao extends ConnectMysql {
 		}
 		return result;
 	}
+	
+	public List<Music> searchMusicpageSize(String name) {
+
+		int pageSize = 15;
+		var result = new ArrayList<Music>();
+		try {
+			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
+			Statement stmt = conn.createStatement();
+			var query = "SELECT * FROM music as m, category as c,album as a WHERE c.idcategory = m.idcategory and a.idalbum = m.idalbum and  m.isdelete = 0 and m.name LIKE '%"+ name +"%' ORDER BY m.id DESC LIMIT "
+					+ 0 * pageSize + "," + (0 + 1 * pageSize);
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				Music music = new Music();
+				music.id = rs.getInt("id");
+				music.name = rs.getString("name");
+				music.url = rs.getString("url");
+				music.image = rs.getString("image");
+				music.isdelete = rs.getInt("isdelete");
+				//
+				Category category = new Category();
+				category.idcategory = rs.getInt("idcategory");
+				category.namecategory = rs.getString("namecategory");
+				music.category = category;
+				//
+				Album album = new Album();
+				album.idalbum = rs.getInt("idalbum");
+				album.namealbum = rs.getString("namealbum");
+				music.album = album;
+				result.add(music);
+			}
+			conn.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return result;
+	}
 
 	public String deleteMusic(int id) {
 		try {

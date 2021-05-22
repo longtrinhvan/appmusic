@@ -31,7 +31,7 @@ body {
 	background-image:
 		url("https://anhdep123.com/wp-content/uploads/2020/11/hinh-anh-background.jpeg");
 	border: 3px solid #f1f1f1;
-	width: 410px;
+	width: 310px;
 	height: 600px;
 	border-radius: 10px;
 	margin-top: 50px;

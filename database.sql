@@ -163,6 +163,7 @@ CREATE TABLE account (
   id int NOT NULL AUTO_INCREMENT,
   idrole int NOT NULL ,
   name varchar(200) DEFAULT NULL,
+  fullname varchar(200) DEFAULT NULL,
   password varchar(200) DEFAULT NULL,
   image varchar(700) DEFAULT NULL,
   isdelete int DEFAULT NULL,
@@ -170,10 +171,12 @@ CREATE TABLE account (
   FOREIGN KEY (idrole) REFERENCES role(idrole)
 );
 
-INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`password`,`image`,`isdelete`)
-VALUES(1,1,'long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
-INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`password`,`image`,`isdelete`)
-VALUES(2,2,'sang','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
-INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`password`,`image`,`isdelete`)
-VALUES(3,2,'hung','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(1,1,'long','Trịnh Văn Long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(2,2,'sang','Đỗ Thái Sang','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(3,2,'hung','Nguyễn Văn Hưng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
+
+
 

@@ -29,6 +29,7 @@ public class AccountDao extends ConnectMysql {
 				role.namerole = rs.getString("namerole");
 				account.idrole = rs.getInt("idrole");
 				account.name = rs.getString("name");
+				account.fullname = rs.getString("fullname");
 				account.password = rs.getString("password");
 				account.image = rs.getString("image");
 				account.isdelete = rs.getInt("isdelete");
@@ -55,6 +56,7 @@ public class AccountDao extends ConnectMysql {
 				role.namerole = rs.getString("namerole");
 				account.idrole = rs.getInt("idrole");
 				account.name = rs.getString("name");
+				account.fullname = rs.getString("fullname");
 				account.password = rs.getString("password");
 				account.image = rs.getString("image");
 				account.isdelete = rs.getInt("isdelete");
@@ -84,6 +86,7 @@ public class AccountDao extends ConnectMysql {
 				role.namerole = rs.getString("namerole");
 				account.idrole = rs.getInt("idrole");
 				account.name = rs.getString("name");
+				account.fullname = rs.getString("fullname");
 				account.password = rs.getString("password");
 				account.image = rs.getString("image");
 				account.isdelete = rs.getInt("isdelete");

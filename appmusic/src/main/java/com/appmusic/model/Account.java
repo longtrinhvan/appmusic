@@ -5,11 +5,14 @@ public class Account {
 	public int id;
 	public int idrole;
 	public String name;
+	public String fullname;
 	public String password;
 	public String image;
 	public int isdelete;
 	public String token;
 
+	
+	
 	public Account() {
 
 	}
