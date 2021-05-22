@@ -32,7 +32,7 @@ public class MainController {
 
 	@RequestMapping(value = { "/music" }, method = RequestMethod.GET)
 	public String musicPage(Model model) {
-		return "musicpage";
+		return "music";
 	}
 
 	@RequestMapping(value = { "/edit" }, method = RequestMethod.GET)

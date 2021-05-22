@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -37,7 +40,7 @@
 			float: left;
 			width: 280px;
 			height: 29px;
-			padding-left: 70px;
+			padding-left: 20px;
 		}
 
 		#div-searchalbum-1xxx button {
@@ -45,7 +48,7 @@
 			margin-top: 11px;
 			width: 45px;
 			height: 29px;
-			margin-left: 315px;
+			margin-left: 265px;
 			border-top-right-radius: 3px;
 			border-bottom-right-radius: 3px;
 			border-left: 1px solid rgb(112, 112, 112);
@@ -62,6 +65,7 @@
 			float: left;
 			width: 210px;
 			height: 50px;
+			margin-top:40px;
 		}
 	</style>
 
