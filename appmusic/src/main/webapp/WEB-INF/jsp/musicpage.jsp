@@ -145,18 +145,16 @@ input {
 	padding-left: 15px;
 }
 
-.show {
-	width: 70px;
-	height: 27px;
-	border-radius: 3px;
-	color: cornsilk;
-	background-color: teal;
+.show svg {
+	width: 20px;
+	height: 20px;
+	color: blue;
 }
 
-.showhai {
-	width: 70px;
-	height: 40px;
-	background-color: transparent;
+.showhai svg {
+	width: 15px;
+	height: 15px;
+	color: red;
 }
 
 #categorymusic {
@@ -255,7 +253,6 @@ input {
 						<th>Name</th>
 						<th>Album</th>
 						<th>Category</th>
-						<th>Image</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
 					</tr>
@@ -333,14 +330,16 @@ input {
 											+ namealbum
 											+ '</td><td>'
 											+ namecategory
-											+ '</td><td>'
-											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
+											// 											+ '</td><td>'
+											// 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
 											+ '</td><td>'
 											+ '<button class="showhai" onclick="deleteMusic('
 											+ id
-											+ ')" ><i class="fas fa-trash-alt" style="color: rgb(206, 30, 30)" ></i></button>'
+											+ ')" ><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></button>'
 											+ '</td><td>'
-											+ '<button id="' + id + '" class="show">Edit</button> '
+											+ '<button class="show" onclick="edit('
+											+ id
+											+ ')"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="edit" class="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path></svg></button> '
 											+ '</td></tr>';
 								}
 								$('#bidders').append(trHTML);
@@ -387,31 +386,26 @@ input {
 							});
 						});
 
-		$('.center-mm1').on(
-				'click',
-				'.show',
-				function(e) {
-					var url = "http://localhost:8080/apimusic/getmusic?id="
-							+ e.target.id;
-					$.getJSON(url, {
-						format : "json"
-					}).done(
-							function(data) {
+		function edit(id) {
+			var url = "http://localhost:8080/apimusic/getmusic?id=" + id;
+			$.getJSON(url, {
+				format : "json"
+			}).done(
+					function(data) {
 
-								$('#id').val(data['id']);
-								$('#name').val(data['name']);
-								$('#url').val(data['url']);
-								$('#image').val(data['image']);
-								$('#audio').attr('src', data['url']);
-								$('#imageiframe').attr('src', data['image']);
-								$('#album').val(data['album'].namealbum);
-								$("div.id_100 select").val(
-										"value" + data['category'].idcategory);
-								$('#idcategorymusic').val(
-										data['category'].idcategory);
-								$('#idalbummusic').val(data['album'].idalbum);
-							});
-				});
+						$('#id').val(data['id']);
+						$('#name').val(data['name']);
+						$('#url').val(data['url']);
+						$('#image').val(data['image']);
+						$('#audio').attr('src', data['url']);
+						$('#imageiframe').attr('src', data['image']);
+						$('#album').val(data['album'].namealbum);
+						$("div.id_100 select").val(
+								"value" + data['category'].idcategory);
+						$('#idcategorymusic').val(data['category'].idcategory);
+						$('#idalbummusic').val(data['album'].idalbum);
+					});
+		};
 
 		function deleteMusic(id) {
 			var data = {};

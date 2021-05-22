@@ -38,7 +38,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 		String requestTokenHeader = request.getHeader("Authorization");
 		try {
 			requestTokenHeader = Login.account.token;
-			if (System.currentTimeMillis() - timeStart > (60 * 1000)) {
+			if (System.currentTimeMillis() - timeStart > (10 * 60 * 1000)) {
 				requestTokenHeader = null;
 				Login.account.token = null;
 			}

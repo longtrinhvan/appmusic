@@ -83,13 +83,14 @@ public class MusicDao extends ConnectMysql {
 
 	public List<Music> getMusicpageSize(int indexPage) {
 
+		int pageSize = 15;
 		var result = new ArrayList<Music>();
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
 			var query = "SELECT * FROM music as m, category as c,album as a "
 					+ "WHERE c.idcategory = m.idcategory and a.idalbum = m.idalbum and  m.isdelete = 0 ORDER BY m.id DESC LIMIT "
-					+ indexPage * 4 + "," + (indexPage + 1 * 4);
+					+ indexPage * pageSize + "," + (indexPage + 1 * pageSize);
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				Music music = new Music();

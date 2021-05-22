@@ -55,13 +55,6 @@ CREATE TABLE music (
   FOREIGN KEY (idcategory) REFERENCES category(idcategory)
 );
 
-SELECT * FROM music as m, category as c,album as a 
-WHERE c.id = m.idcategory and a.id = m.idalbum and  m.isdelete = 0 
-ORDER BY m.id DESC LIMIT 0,4;
-
-SELECT * FROM music as m, category as c,album as a
-WHERE c.id = m.idcategory and a.id = m.idalbum and m.isdelete = 4;
-
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
 VALUES(1,'Có Chắc Yêu Là Đây',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',1);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
@@ -78,6 +71,59 @@ INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,
 VALUES(7,'XIN ĐỪNG NHẤC MÁY',3,3,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
 VALUES(8,'Exs Hate Me - B Ray x Masew ',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(441,'Có Chắc Yêu Là Đây',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',1);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(442,'Waiting For Love',1,1,'https://drive.google.com/file/d/1bpCc2RucjXK-qvuC9k3AeWxJTWu5sou_/preview','https://drive.google.com/file/d/1Jn13MTlzuduo6W3bAsUscbi2c5kJAOz7/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(443,'Em của ngày hôm qua',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(444,'Way Back Home',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(445,'Something Just Like This',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(446,'Phao - 2 Phut Hon',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(447,'XIN ĐỪNG NHẤC MÁY',3,3,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(448,'Exs Hate Me - B Ray x Masew ',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+
+
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(111,'Có Chắc Yêu Là Đây',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',1);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(112,'Waiting For Love',1,1,'https://drive.google.com/file/d/1bpCc2RucjXK-qvuC9k3AeWxJTWu5sou_/preview','https://drive.google.com/file/d/1Jn13MTlzuduo6W3bAsUscbi2c5kJAOz7/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(113,'Em của ngày hôm qua',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(114,'Way Back Home',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(115,'Something Just Like This',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(116,'Phao - 2 Phut Hon',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(117,'XIN ĐỪNG NHẤC MÁY',3,3,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(118,'Exs Hate Me - B Ray x Masew ',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(221,'Có Chắc Yêu Là Đây',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',1);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(222,'Waiting For Love',1,1,'https://drive.google.com/file/d/1bpCc2RucjXK-qvuC9k3AeWxJTWu5sou_/preview','https://drive.google.com/file/d/1Jn13MTlzuduo6W3bAsUscbi2c5kJAOz7/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(223,'Em của ngày hôm qua',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(224,'Way Back Home',1,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(225,'Something Just Like This',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(226,'Phao - 2 Phut Hon',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(227,'XIN ĐỪNG NHẤC MÁY',3,3,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(228,'Exs Hate Me - B Ray x Masew ',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://drive.google.com/file/d/1ZnebNtmtX9cIFOYbEgNkyy0cCEhQEzJA/preview',0);
+
 
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
 VALUES(9,'Light rock 1.1',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://cdn.shopify.com/s/files/1/0747/3829/products/mQ0289_1024x1024.jpeg',4);
@@ -102,14 +148,14 @@ VALUES(19,'Light rock 1.10',3,3,'https://www.mediacollege.com/downloads/music/am
 
 
 CREATE TABLE role (
-  id int NOT NULL AUTO_INCREMENT,
-  name varchar(200) DEFAULT NULL,
-  PRIMARY KEY (id)
+  idrole int NOT NULL AUTO_INCREMENT,
+  namerole varchar(200) DEFAULT NULL,
+  PRIMARY KEY (idrole)
 );
 
-INSERT INTO `appmusic`.`role`(`id`,`name`)
+INSERT INTO `appmusic`.`role`(`idrole`,`namerole`)
 VALUES('1','admin');
-INSERT INTO `appmusic`.`role`(`id`,`name`)
+INSERT INTO `appmusic`.`role`(`idrole`,`namerole`)
 VALUES('2','user');
 
 
@@ -117,23 +163,17 @@ CREATE TABLE account (
   id int NOT NULL AUTO_INCREMENT,
   idrole int NOT NULL ,
   name varchar(200) DEFAULT NULL,
-  password varchar(20) DEFAULT NULL,
+  password varchar(200) DEFAULT NULL,
   image varchar(700) DEFAULT NULL,
   isdelete int DEFAULT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (idrole) REFERENCES role(id)
+  FOREIGN KEY (idrole) REFERENCES role(idrole)
 );
 
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`password`,`image`,`isdelete`)
-VALUES(1,1,'long','123456','acount.jpg',0);
+VALUES(1,1,'long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`password`,`image`,`isdelete`)
-VALUES(2,2,'sang','123456','acount.jpg',0);
+VALUES(2,2,'sang','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`password`,`image`,`isdelete`)
-VALUES(3,2,'hung','123456','acount.jpg',0);
+VALUES(3,2,'hung','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
 
-SELECT * FROM album WHERE namealbum LIKE 'album%' limit 3;
-update music set isdelete = 1  where id = 1;
-DELETE FROM music
-WHERE id= 1 ;
-SELECT * FROM appmusic.music WHERE isdelete = 0 ORDER BY id DESC LIMIT 5,10;
-SELECT *from  music;
