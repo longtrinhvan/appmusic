@@ -11,11 +11,6 @@
 <script
 	src="<c:url value='/template/paging/jquery.twbsPagination.js' />"
 	type="text/javascript"></script>
-<!-- css -->
-<link href="<c:url value='/template/login/css/home.css' />"
-	rel="stylesheet" type="text/css" media="all" />
-<link href="<c:url value='/template/common/all.min.css' />"
-	rel="stylesheet" type="text/css" media="all" />
 
 <style>
 table {

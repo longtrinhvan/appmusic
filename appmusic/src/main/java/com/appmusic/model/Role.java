@@ -2,7 +2,7 @@ package com.appmusic.model;
 
 public class Role {
 
-	public int id;
-	public String name;
+	public int idrole;
+	public String namerole;
 	
 }
