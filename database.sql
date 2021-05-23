@@ -154,11 +154,45 @@ CREATE TABLE account (
 );
 
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
-VALUES(1,1,'long','Trịnh Văn Long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
+VALUES(1,1,'long','Trịnh Văn Long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
-VALUES(2,2,'sang','Đỗ Thái Sang','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
+VALUES(2,1,'sang','Đỗ Thái Sang','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
-VALUES(3,2,'hung','Nguyễn Văn Hưng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','acount.jpg',0);
+VALUES(3,2,'hung','Nguyễn Văn Hưng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(4,2,'minh','Trịnh Văn Minh','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(5,2,'hanh','Đỗ Thái Hạnh','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(6,2,'hungpro','Nguyễn Văn Hưng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(7,2,'longpro','Trịnh Văn Long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(8,2,'ngan','Đỗ Thúy Ngân','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(9,2,'hung2222','Nguyễn Văn Hưng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(10,2,'long2323','Trịnh Văn Long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(11,2,'Aanabc','Nguyễn Văn Ân','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(12,2,'trang','Nguyễn Thị Trang','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(13,2,'mai233','Đỗ Thị Mai','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(114,2,'hoa1212','Lê Thái Hòa','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(15,2,'hungaaaa','Nguyễn Văn Hùng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(16,2,'binh','Đỗ Thị Bình','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(17,2,'tung','Nguyễn Thanh Tùng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(18,2,'van222222','Ngô Thanh Vân','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
+VALUES(19,2,'vanvip','Trịnh Thị Vân','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+
+
 
 
 

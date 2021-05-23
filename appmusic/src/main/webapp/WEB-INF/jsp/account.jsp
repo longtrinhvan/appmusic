@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Music</title>
+<title>Account</title>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script
 	src="<c:url value='/template/paging/jquery.twbsPagination.js' />"
@@ -35,8 +35,9 @@ td {
 	padding: 7px;
 	font-weight: unset;
 	color: rgb(49, 49, 49);
-	font-size:13px;
+	font-size: 13px;
 }
+
 table td:nth-last-child(5) {
 	text-align: left;
 	padding-left: 15px;
@@ -121,7 +122,7 @@ input {
 	margin-top: 20px;
 	background-color: transparent;
 	color: rgb(226, 226, 226);
-	font-size:13px;
+	font-size: 13px;
 }
 
 .account p {
@@ -129,7 +130,7 @@ input {
 	text-align: center;
 	background-color: transparent;
 	color: rgb(226, 226, 226);
-	font-size:13px;
+	font-size: 13px;
 }
 
 .vertical-menu {
@@ -146,7 +147,7 @@ input {
 	padding: 12px;
 	text-decoration: none;
 	font-weight: unset;
-	font-size:13px;
+	font-size: 13px;
 }
 
 .vertical-menu a:hover {
@@ -230,7 +231,7 @@ input {
 #div-searchalbum-1 input {
 	position: absolute;
 	float: left;
-	width: 180px;
+	width: 232px;
 	height: 31px;
 	padding-left: 70px;
 }
@@ -243,7 +244,7 @@ input {
 	border: 1px solid rgb(177, 177, 177);
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
-	padding: 8px;
+	padding: 7.7px;
 	padding-right: 9px;
 	padding-left: 11px;
 	font-size: 13px;
@@ -254,7 +255,7 @@ input {
 	margin-top: 11px;
 	width: 45px;
 	height: 31px;
-	margin-left: 215px;
+	margin-left: 265px;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 	border-left: 1px solid rgb(112, 112, 112);
@@ -273,40 +274,10 @@ input {
 	height: 50px;
 }
 
-#div-searchalbum-2 {
-	float: left;
-	width: auto;
-	height: 50px;
-	margin-left: 60px;
-}
-
-#div-searchalbum-2 button {
-	position: absolute;
-	margin-top: 11px;
-	width: 45px;
-	height: 31px;
-	margin-left: 158px;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
-	border-left: 1px solid rgb(112, 112, 112);
-}
-
-#div-searchalbum-2 svg {
-	color: rgb(67, 83, 177);
-	border-radius: 3px;
-	width: 20px;
-	height: 31px;
-}
-
-#div-searchalbum-2 input {
-	position: absolute;
-	width: 180px;
-	height: 31px;
-}
-
 #idx100 {
+	float: left;
 	height: 53px;
-	width: 100%;
+	width: 180px;
 }
 
 #idx100 label {
@@ -316,12 +287,12 @@ input {
 	border: 1px solid rgb(177, 177, 177);
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
-	width: 110px;
+	width: 40px;
 	height: 24px;
 	padding-top: 7px;
 	padding-left: 20px;
 	background-color: rgb(226, 226, 226);
-	font-size:13px;
+	font-size: 13px;
 }
 
 #categorymusic {
@@ -334,10 +305,11 @@ input {
 	border: 1px solid rgb(177, 177, 177);
 	outline: none;
 	padding-left: 20px;
-	font-size:13px;
+	font-size: 13px;
 }
 
 #dixname {
+	clear: left;
 	height: 55px;
 	width: 100%;
 }
@@ -353,7 +325,7 @@ input {
 	height: 24px;
 	padding-top: 7px;
 	padding-left: 10px;
-	font-size:13px;
+	font-size: 13px;
 }
 
 #dixname input {
@@ -380,17 +352,17 @@ input {
 	border: 1px solid rgb(177, 177, 177);
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
-	width: 40px;
+	width: 70px;
 	height: 24px;
 	padding-top: 7px;
 	padding-left: 20px;
-	font-size:13px;
+	font-size: 13px;
 }
 
 .divurl input {
 	float: left;
 	margin: 10px 0px 0px -11px;
-	width: 407px;
+	width: 377px;
 	height: 31px;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
@@ -400,6 +372,7 @@ input {
 }
 
 .divimage {
+	clear: left;
 	height: 55px;
 	width: 100%;
 }
@@ -415,7 +388,7 @@ input {
 	height: 24px;
 	padding-top: 7px;
 	padding-left: 10px;
-	font-size:13px;
+	font-size: 13px;
 }
 
 .divimage input {
@@ -504,7 +477,8 @@ input {
 			<p id="nameaccountnha"></p>
 		</div>
 		<div class="vertical-menu">
-			<a onclick="musiclink()" class="active">Music</a> <a onclick="accountlink()" >Account</a> <a onclick="logout()">Logout</a>
+			<a onclick="musiclink()" class="active">Music</a> <a
+				onclick="accountlink()">Account</a> <a onclick="logout()">Logout</a>
 		</div>
 	</div>
 	<div class="center">
@@ -526,14 +500,14 @@ input {
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Name</th>
-						<th>Album</th>
-						<th>Category</th>
+						<th>Role</th>
+						<th>User</th>
+						<th>Full Name</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
 					</tr>
 				</thead>
-				<tbody id="bidders">
+				<tbody id="biddersx">
 
 				</tbody>
 			</table>
@@ -547,50 +521,31 @@ input {
 					src="https://i1.sndcdn.com/artworks-LG3sdV8andowvRJL-Sy3DyQ-t500x500.jpg"
 					width="270" height="270" id="imageiframe"></img>
 			</div>
-			<div class="audio">
-				<iframe
-					src="https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview"
-					width="470" height="60" id="audio"></iframe>
-			</div>
 			<div class="detail">
-				<div class="id_100" id="idx100">
-					<label>Category Music</label> <select name="categorymusic"
-						id="categorymusic">
-					</select>
-				</div>
-				<div id="div-searchalbum">
-					<div id="div-searchalbum-1">
-						<input type="text" id="searchalbum"> <label>Album</label>
-						<button>
-							<svg aria-hidden="true" focusable="false" data-prefix="fas"
-								data-icon="search" class="svg-inline--fa fa-search fa-w-16"
-								role="img" xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 512 512">
-								<path fill="currentColor"
-									d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
-								</path>
-							</svg>
-						</button>
-					</div>
-					<div id="div-searchalbum-2">
-						<input type="text" id="album">
-						<button>
-							<svg aria-hidden="true" focusable="false" data-prefix="fas"
-								data-icon="plus-circle"
-								class="svg-inline--fa fa-plus-circle fa-w-16" role="img"
-								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-								<path fill="currentColor"
-									d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z">
-								</path>
-							</svg>
-						</button>
-					</div>
-				</div>
 				<div id="dixname">
-					<label>Name</label> <input type="text" id="name">
+					<label>User</label> <input type="text" id="name">
 				</div>
 				<div class="divurl">
-					<label>Url</label> <input type="text" id="url">
+					<label>Full Name</label> <input type="text" id="url">
+				</div>
+				<div id="div-searchalbum">
+					<div class="id_100" id="idx100">
+						<label>Role</label> <select name="categorymusic"
+							id="categorymusic">
+						</select>
+					</div>
+					<div id="div-searchalbum-1">
+						<input type="password" id="searchalbum"> <label>Password</label>
+						<button>
+							<svg aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="eye" class="svg-inline--fa fa-eye fa-w-18" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+								<path fill="currentColor"
+									d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+								</path>
+							</svg>
+						</button>
+					</div>
 				</div>
 				<div class="divimage">
 					<label>Image</label> <input type="text" id="image">
@@ -624,7 +579,7 @@ input {
 		(function() {
 			$
 					.getJSON(
-							"http://localhost:8080/apimusic/getmusicpage?id=0",
+							"http://localhost:8080/apiaccount/getaccountpagesize?page=0",
 							{
 								format : "json"
 							})
@@ -634,21 +589,17 @@ input {
 								var trHTML = '';
 								for (var i = 0; i < len; i++) {
 									var id = data[i].id;
+									var idrole = data[i].role.namerole;
 									var name = data[i].name;
-									var idcategory = data[i].category.idcategory;
-									var namecategory = data[i].category.namecategory;
-									var idalbum = data[i].album.idalbum;
-									var namealbum = data[i].album.namealbum;
-									var url = data[i].url;
-									var image = data[i].image;
+									var fullname = data[i].fullname;
 									trHTML += '<tr><td>'
 											+ id
 											+ '</td><td>'
+											+ idrole
+											+ '</td><td>'
 											+ name
 											+ '</td><td>'
-											+ namealbum
-											+ '</td><td>'
-											+ namecategory
+											+ fullname
 											// 											+ '</td><td>'
 											// 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
 											+ '</td><td>'
@@ -661,28 +612,24 @@ input {
 											+ ')"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="edit" class="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path></svg></button> '
 											+ '</td></tr>';
 								}
-								$('#bidders').append(trHTML);
+								$('#biddersx').append(trHTML);
 								$('#page').val(0);
 							});
 
-			$
-					.getJSON(
-							"http://localhost:8080/apicategory/getallcategory",
-							{
-								format : "json"
-							})
-					.done(
-							function(data) {
-								var len = data.length;
-								var trHTML = '';
-								for (var i = 0; i < len; i++) {
-									var idcategory = data[i].idcategory;
-									var namecategory = data[i].namecategory;
-									trHTML += "<option value=" + "value" + idcategory + ">"
-											+ namecategory + "</option>";
-								}
-								$('#categorymusic').append(trHTML);
-							});
+			$.getJSON("http://localhost:8080/apiaccount/getallrole", {
+				format : "json"
+			}).done(
+					function(data) {
+						var len = data.length;
+						var trHTML = '';
+						for (var i = 0; i < len; i++) {
+							var idrole = data[i].idrole;
+							var namerole = data[i].namerole;
+							trHTML += "<option value=" + "value" + idrole + ">"
+									+ namerole + "</option>";
+						}
+						$('#categorymusic').append(trHTML);
+					});
 
 			$.getJSON("http://localhost:8080/apiaccount/getaccountlogin", {
 				format : "json"
@@ -737,13 +684,13 @@ input {
 			var data = {};
 			data['id'] = id;
 			$.ajax({
-				url : 'http://localhost:8080/apimusic/deletemusic',
+				url : 'http://localhost:8080/apiaccount/deleteaccount',
 				type : 'POST',
 				contentType : 'application/json',
 				data : JSON.stringify(data),
 				dataType : "json"
 			});
-			window.location.href = "http://localhost:8080/music";
+			window.location.href = "http://localhost:8080/account";
 		}
 
 		function createMusic() {
@@ -770,7 +717,7 @@ input {
 				data : JSON.stringify(music),
 				dataType : "json"
 			});
-			window.location.href = "http://localhost:8080/music";
+			window.location.href = "http://localhost:8080/account";
 		}
 
 		function updateMusic() {
@@ -797,7 +744,7 @@ input {
 				data : JSON.stringify(music),
 				dataType : "json"
 			});
-			window.location.href = "http://localhost:8080/music";
+			window.location.href = "http://localhost:8080/account";
 		}
 
 		function back() {
@@ -807,7 +754,7 @@ input {
 			}
 			$
 					.getJSON(
-							"http://localhost:8080/apimusic/getmusicpage?id="
+							"http://localhost:8080/apiaccount/getaccountpagesize?page="
 									+ page, {
 								format : "json"
 							})
@@ -817,21 +764,17 @@ input {
 								var trHTML = '';
 								for (var i = 0; i < len; i++) {
 									var id = data[i].id;
+									var idrole = data[i].role.namerole;
 									var name = data[i].name;
-									var idcategory = data[i].category.idcategory;
-									var namecategory = data[i].category.namecategory;
-									var idalbum = data[i].album.idalbum;
-									var namealbum = data[i].album.namealbum;
-									var url = data[i].url;
-									var image = data[i].image;
+									var fullname = data[i].fullname;
 									trHTML += '<tr><td>'
 											+ id
 											+ '</td><td>'
+											+ idrole
+											+ '</td><td>'
 											+ name
 											+ '</td><td>'
-											+ namealbum
-											+ '</td><td>'
-											+ namecategory
+											+ fullname
 											// 											+ '</td><td>'
 											// 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
 											+ '</td><td>'
@@ -844,8 +787,8 @@ input {
 											+ ')"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="edit" class="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path></svg></button> '
 											+ '</td></tr>';
 								}
-								$("#bidders tr").remove();
-								$('#bidders').append(trHTML);
+								$("#biddersx tr").remove();
+								$('#biddersx').append(trHTML);
 								$('#page').val(page);
 							});
 		}
@@ -854,7 +797,7 @@ input {
 			page = page + 1;
 			$
 					.getJSON(
-							"http://localhost:8080/apimusic/getmusicpage?id="
+							"http://localhost:8080/apiaccount/getaccountpagesize?page="
 									+ page, {
 								format : "json"
 							})
@@ -864,21 +807,17 @@ input {
 								var trHTML = '';
 								for (var i = 0; i < len; i++) {
 									var id = data[i].id;
+									var idrole = data[i].role.namerole;
 									var name = data[i].name;
-									var idcategory = data[i].category.idcategory;
-									var namecategory = data[i].category.namecategory;
-									var idalbum = data[i].album.idalbum;
-									var namealbum = data[i].album.namealbum;
-									var url = data[i].url;
-									var image = data[i].image;
+									var fullname = data[i].fullname;
 									trHTML += '<tr><td>'
 											+ id
 											+ '</td><td>'
+											+ idrole
+											+ '</td><td>'
 											+ name
 											+ '</td><td>'
-											+ namealbum
-											+ '</td><td>'
-											+ namecategory
+											+ fullname
 											// 											+ '</td><td>'
 											// 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
 											+ '</td><td>'
@@ -891,8 +830,8 @@ input {
 											+ ')"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="edit" class="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path></svg></button> '
 											+ '</td></tr>';
 								}
-								$("#bidders tr").remove();
-								$('#bidders').append(trHTML);
+								$("#biddersx tr").remove();
+								$('#biddersx').append(trHTML);
 								$('#page').val(page);
 							});
 		}
@@ -911,21 +850,17 @@ input {
 								var trHTML = '';
 								for (var i = 0; i < len; i++) {
 									var id = data[i].id;
+									var idrole = data[i].role.namerole;
 									var name = data[i].name;
-									var idcategory = data[i].category.idcategory;
-									var namecategory = data[i].category.namecategory;
-									var idalbum = data[i].album.idalbum;
-									var namealbum = data[i].album.namealbum;
-									var url = data[i].url;
-									var image = data[i].image;
+									var fullname = data[i].fullname;
 									trHTML += '<tr><td>'
 											+ id
 											+ '</td><td>'
+											+ idrole
+											+ '</td><td>'
 											+ name
 											+ '</td><td>'
-											+ namealbum
-											+ '</td><td>'
-											+ namecategory
+											+ fullname
 											// 											+ '</td><td>'
 											// 											+ '<iframe src="' + image + '" width="140" height="140"></iframe>'
 											+ '</td><td>'
@@ -938,8 +873,8 @@ input {
 											+ ')"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="edit" class="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path></svg></button> '
 											+ '</td></tr>';
 								}
-								$("#bidders tr").remove();
-								$('#bidders').append(trHTML);
+								$("#biddersx tr").remove();
+								$('#biddersx').append(trHTML);
 							});
 		}
 

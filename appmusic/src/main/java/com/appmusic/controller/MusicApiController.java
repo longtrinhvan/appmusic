@@ -50,7 +50,7 @@ public class MusicApiController {
 		return new ResponseEntity<>(music, null, status);
 	}
 
-	@RequestMapping(value = "/getmusic-page", method = RequestMethod.GET)
+	@RequestMapping(value = "/getmusicpage", method = RequestMethod.GET)
 	public ResponseEntity<List<Music>> getMusicpageSize(int id) {
 		List<Music> music = null;
 		var status = HttpStatus.OK;

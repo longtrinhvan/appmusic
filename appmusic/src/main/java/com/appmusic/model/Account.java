@@ -3,7 +3,7 @@ package com.appmusic.model;
 public class Account {
 
 	public int id;
-	public int idrole;
+	public Role role;
 	public String name;
 	public String fullname;
 	public String password;

@@ -13,35 +13,6 @@ import com.appmusic.model.Role;
 
 public class AccountDao extends ConnectMysql {
 
-	public List<Account> getAllAccount() {
-
-		var result = new ArrayList<Account>();
-		try {
-			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
-			Statement stmt = conn.createStatement();
-			var query = "SELECT * FROM account , role where account.idrole= role.idrole and isdelete = 0 ";
-			ResultSet rs = stmt.executeQuery(query);
-			while (rs.next()) {
-				Account account = new Account();
-				account.id = rs.getInt("id");
-				Role role = new Role();
-				role.idrole = rs.getInt("idrole");
-				role.namerole = rs.getString("namerole");
-				account.idrole = rs.getInt("idrole");
-				account.name = rs.getString("name");
-				account.fullname = rs.getString("fullname");
-				account.password = rs.getString("password");
-				account.image = rs.getString("image");
-				account.isdelete = rs.getInt("isdelete");
-				result.add(account);
-			}
-			conn.close();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return result;
-	}
-
 	public Account getAccount(String name) {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
@@ -54,7 +25,6 @@ public class AccountDao extends ConnectMysql {
 				Role role = new Role();
 				role.idrole = rs.getInt("idrole");
 				role.namerole = rs.getString("namerole");
-				account.idrole = rs.getInt("idrole");
 				account.name = rs.getString("name");
 				account.fullname = rs.getString("fullname");
 				account.password = rs.getString("password");
@@ -76,7 +46,7 @@ public class AccountDao extends ConnectMysql {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
 			var query = "SELECT * FROM account , role where account.idrole= role.idrole and isdelete = 0 ORDER BY id DESC LIMIT "
-					+ indexPage * 4 + "," + (indexPage + 1 * 4);
+					+ indexPage * 15 + "," + (indexPage + 1 * 15);
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				Account account = new Account();
@@ -84,7 +54,7 @@ public class AccountDao extends ConnectMysql {
 				Role role = new Role();
 				role.idrole = rs.getInt("idrole");
 				role.namerole = rs.getString("namerole");
-				account.idrole = rs.getInt("idrole");
+				account.role = role;
 				account.name = rs.getString("name");
 				account.fullname = rs.getString("fullname");
 				account.password = rs.getString("password");
@@ -114,13 +84,17 @@ public class AccountDao extends ConnectMysql {
 		return "deletesuccess ";
 	}
 
-	public String updateAccount(Account Account) {
+	public String updateAccount(Account account) {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
-			String query = " update Account set name = ?, idalbum =?, idcategory = ?, url= ?, image = ? where id = ?";
+			String query = " update account set name = ?, idrole =?, fullname = ?, password = ?, image = ? where id = ?";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
-
-			preparedStmt.setInt(6, Account.id);
+			preparedStmt.setString(1, account.name);
+			preparedStmt.setInt(2, account.role.idrole);
+			preparedStmt.setString(3, account.fullname);
+			preparedStmt.setString(4, account.password);
+			preparedStmt.setString(5, account.image);
+			preparedStmt.setInt(6, account.id);
 			preparedStmt.execute();
 			conn.close();
 		} catch (Exception ex) {
@@ -132,9 +106,13 @@ public class AccountDao extends ConnectMysql {
 	public String insertAccount(Account account) {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
-			String query = " INSERT INTO account(name,idalbum,idcategory,url,image,isdelete) VALUES(?,?,?,?,?,?)";
+			String query = " INSERT INTO `appmusic`.`account`(`idrole`,`name`,`fullname`,`password`,`image`,`isdelete` VALUES(?,?,?,?,?,?);";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
-
+			preparedStmt.setInt(1, account.role.idrole);
+			preparedStmt.setString(2, account.name);
+			preparedStmt.setString(3, account.fullname);
+			preparedStmt.setString(4, account.password);
+			preparedStmt.setString(5, account.image);
 			preparedStmt.setInt(6, 0);
 			preparedStmt.execute();
 			conn.close();
