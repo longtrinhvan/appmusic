@@ -840,7 +840,7 @@ input {
 			var name = $('#searchname').val();
 			$
 					.getJSON(
-							"http://localhost:8080/apimusic/searchmusicpagesize?name="
+							"http://localhost:8080/apiaccount/searchaccountpagesize?name="
 									+ name, {
 								format : "json"
 							})

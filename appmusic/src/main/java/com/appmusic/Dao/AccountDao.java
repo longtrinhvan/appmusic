@@ -9,6 +9,9 @@ import java.util.List;
 
 import com.appmusic.common.ConnectMysql;
 import com.appmusic.model.Account;
+import com.appmusic.model.Album;
+import com.appmusic.model.Category;
+import com.appmusic.model.Music;
 import com.appmusic.model.Role;
 
 public class AccountDao extends ConnectMysql {
@@ -18,7 +21,7 @@ public class AccountDao extends ConnectMysql {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(
-					"select * from account, role where account.idrole= role.idrole and  name = '" + name + "'");
+					"select * from account, role where account.idrole= role.idrole and  account.name = '" + name + "'");
 			while (rs.next()) {
 				Account account = new Account();
 				account.id = rs.getInt("id");
@@ -120,5 +123,36 @@ public class AccountDao extends ConnectMysql {
 			ex.printStackTrace();
 		}
 		return "deletesuccess ";
+	}
+
+	public List<Account> searchAccountpageSize(String name) {
+
+		int pageSize = 15;
+		var result = new ArrayList<Account>();
+		try {
+			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
+			Statement stmt = conn.createStatement();
+			var query = "SELECT * FROM account , role where account.idrole= role.idrole and account.isdelete = 0 and account.name LIKE '%"
+					+ name + "%' ORDER BY id DESC LIMIT " + 0 * pageSize + "," + (0 + 1 * pageSize);
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				Account account = new Account();
+				account.id = rs.getInt("id");
+				Role role = new Role();
+				role.idrole = rs.getInt("idrole");
+				role.namerole = rs.getString("namerole");
+				account.role = role;
+				account.name = rs.getString("name");
+				account.fullname = rs.getString("fullname");
+				account.password = rs.getString("password");
+				account.image = rs.getString("image");
+				account.isdelete = rs.getInt("isdelete");
+				result.add(account);
+			}
+			conn.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return result;
 	}
 }

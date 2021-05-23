@@ -16,6 +16,7 @@ import com.appmusic.Dao.AccountDao;
 import com.appmusic.Dao.RoleDao;
 import com.appmusic.common.Login;
 import com.appmusic.model.Account;
+import com.appmusic.model.Music;
 import com.appmusic.model.Role;
 
 @RestController
@@ -112,6 +113,18 @@ public class AccountApiController {
 		var status = HttpStatus.OK;
 		try {
 			accountDao.updateAccount(account);
+		} catch (Throwable e) {
+			status = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		return new ResponseEntity<>(account, null, status);
+	}
+	
+	@RequestMapping(value = "/searchaccountpagesize", method = RequestMethod.GET)
+	public ResponseEntity<List<Account>> searchMusicpageSize(String name) {
+		List<Account> account = null;
+		var status = HttpStatus.OK;
+		try {
+			account =accountDao.searchAccountpageSize(name);
 		} catch (Throwable e) {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
