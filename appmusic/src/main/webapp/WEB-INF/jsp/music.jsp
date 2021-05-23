@@ -35,6 +35,11 @@ td {
 	padding: 7px;
 	font-weight: unset;
 	color: rgb(49, 49, 49);
+	font-size:13px;
+}
+table td:nth-last-child(5) {
+	text-align: left;
+	padding-left: 15px;
 }
 
 #div-searchalbum-1xxx input {
@@ -116,6 +121,7 @@ input {
 	margin-top: 20px;
 	background-color: transparent;
 	color: rgb(226, 226, 226);
+	font-size:13px;
 }
 
 .account p {
@@ -123,6 +129,7 @@ input {
 	text-align: center;
 	background-color: transparent;
 	color: rgb(226, 226, 226);
+	font-size:13px;
 }
 
 .vertical-menu {
@@ -139,6 +146,7 @@ input {
 	padding: 12px;
 	text-decoration: none;
 	font-weight: unset;
+	font-size:13px;
 }
 
 .vertical-menu a:hover {
@@ -235,9 +243,10 @@ input {
 	border: 1px solid rgb(177, 177, 177);
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
-	padding: 7px;
+	padding: 8px;
 	padding-right: 9px;
 	padding-left: 11px;
+	font-size: 13px;
 }
 
 #div-searchalbum-1 button {
@@ -312,6 +321,7 @@ input {
 	padding-top: 7px;
 	padding-left: 20px;
 	background-color: rgb(226, 226, 226);
+	font-size:13px;
 }
 
 #categorymusic {
@@ -324,6 +334,7 @@ input {
 	border: 1px solid rgb(177, 177, 177);
 	outline: none;
 	padding-left: 20px;
+	font-size:13px;
 }
 
 #dixname {
@@ -342,6 +353,7 @@ input {
 	height: 24px;
 	padding-top: 7px;
 	padding-left: 10px;
+	font-size:13px;
 }
 
 #dixname input {
@@ -372,6 +384,7 @@ input {
 	height: 24px;
 	padding-top: 7px;
 	padding-left: 20px;
+	font-size:13px;
 }
 
 .divurl input {
@@ -402,6 +415,7 @@ input {
 	height: 24px;
 	padding-top: 7px;
 	padding-left: 10px;
+	font-size:13px;
 }
 
 .divimage input {
