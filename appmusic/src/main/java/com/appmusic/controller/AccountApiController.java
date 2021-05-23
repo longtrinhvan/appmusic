@@ -16,7 +16,6 @@ import com.appmusic.Dao.AccountDao;
 import com.appmusic.Dao.RoleDao;
 import com.appmusic.common.Login;
 import com.appmusic.model.Account;
-import com.appmusic.model.Music;
 import com.appmusic.model.Role;
 
 @RestController
@@ -57,6 +56,18 @@ public class AccountApiController {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 		return null;
+	}
+	
+	@RequestMapping(value = "/getaccount", method = RequestMethod.GET)
+	public ResponseEntity<Account> getAccount(String name) {
+		Account account = null;
+		var status = HttpStatus.OK;
+		try {
+			account = accountDao.getAccount(name);
+		} catch (Throwable e) {
+			status = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		return new ResponseEntity<>(account, null, status);
 	}
 
 	@RequestMapping(value = "/getallrole", method = RequestMethod.GET)
