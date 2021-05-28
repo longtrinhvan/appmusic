@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <title>Music</title>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<link th:href="@{/css/music.css}" rel="stylesheet"/>
+<link th:href="@{/css/music.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -518,7 +518,7 @@
 					+ abcx();
 		}
 		function accountlink() {
-			window.location.href = "http://localhost:8080/account";
+			window.location.href = "http://localhost:8080/account?token=" + abcx();
 		}
 		function abc() {
 			var url = window.location.href;
