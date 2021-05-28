@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -113,9 +110,9 @@ span.psw {
 			</div>
 
 			<div class="container">
-				<label for="uname"><b>Username</b></label> <input class="name"
+				<label for="uname"><b>Username</b></label> <input class="name" value="long"
 					type="text" placeholder="Enter Username" name="uname" required>
-				<label for="psw"><b>Password</b></label> <input class="password"
+				<label for="psw"><b>Password</b></label> <input class="password" value="password"
 					type="password" placeholder="Enter Password" name="psw" required>
 
 				<button onclick="login()">Login</button>
@@ -143,7 +140,7 @@ span.psw {
 				dataType : "json",
 				success : function(result) {
 					console.log("Hello world!");
-					window.location.href = "http://localhost:8080/music";
+					window.location.href = "http://localhost:8080/music?token=" + result.token;
 				},
 				error : function(error) {
 				}

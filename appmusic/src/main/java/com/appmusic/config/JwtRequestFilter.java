@@ -36,15 +36,16 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 
 		String requestTokenHeader = request.getHeader("Authorization");
-		try {
-			requestTokenHeader = Login.account.token;
-			if (System.currentTimeMillis() - timeStart > (10 * 60 * 1000)) {
-				requestTokenHeader = null;
-				Login.account.token = null;
-			}
-		} catch (Exception e) {
-			timeStart = System.currentTimeMillis();
-		}
+		System.out.println(requestTokenHeader);
+//		try {
+//			requestTokenHeader = Login.account.token;
+//			if (System.currentTimeMillis() - timeStart > (10 * 60 * 1000)) {
+//				requestTokenHeader = null;
+//				Login.account.token = null;
+//			}
+//		} catch (Exception e) {
+//			timeStart = System.currentTimeMillis();
+//		}
 		String name = null;
 		String jwtToken = null;
 

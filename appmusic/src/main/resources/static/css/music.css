@@ -1,0 +1,476 @@
+table {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	border-collapse: collapse;
+	width: 95%;
+	margin: 10px;
+}
+
+th {
+	background-color: rgb(218, 218, 218);
+	padding: 9px;
+	border: 1px solid rgb(218, 218, 218);
+	text-align: center;
+	font-weight: unset;
+	color: rgb(41, 41, 41);
+}
+
+td {
+	border: 1px solid rgb(218, 218, 218);
+	text-align: center;
+	padding: 7px;
+	font-weight: unset;
+	color: rgb(49, 49, 49);
+	font-size:13px;
+}
+table td:nth-last-child(5) {
+	text-align: left;
+	padding-left: 15px;
+}
+
+#div-searchalbum-1xxx input {
+	position: absolute;
+	float: left;
+	width: 280px;
+	height: 29px;
+	padding-left: 20px;
+}
+
+#div-searchalbum-1xxx button {
+	position: absolute;
+	margin-top: 11px;
+	width: 45px;
+	height: 29px;
+	margin-left: 265px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-left: 1px solid rgb(112, 112, 112);
+}
+
+#div-searchalbum-1xxx svg {
+	color: rgb(67, 83, 177);
+	border-radius: 3px;
+	width: 20px;
+	height: 29px;
+}
+
+#div-searchalbum-1xxx {
+	float: left;
+	width: 210px;
+	height: 50px;
+	margin-top: 40px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: white;
+	font-family: arial, sans-serif;
+	font-size: 14px;
+}
+
+input {
+	outline: none;
+}
+
+.menu {
+	float: left;
+	height: 800px;
+	width: 15%;
+	background-image:
+		url("https://thietbiketnoi.com/wp-content/uploads/2020/01/tong-hop-hinh-nen-background-vector-designer-dep-do-phan-giai-fhd-2k-4k-moi-nhat-16.jpg");
+}
+
+.account {
+	width: 100%;
+	height: 250px;
+	background-color: transparent;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 12px;
+}
+
+.account img {
+	margin-top: 20px;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: transparent;
+	margin-left: 35px;
+}
+
+.account label {
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+	background-color: transparent;
+	color: rgb(226, 226, 226);
+	font-size:13px;
+}
+
+.account p {
+	margin-top: 10px;
+	text-align: center;
+	background-color: transparent;
+	color: rgb(226, 226, 226);
+	font-size:13px;
+}
+
+.vertical-menu {
+	width: 100%;
+	height: 550px;
+	background-image:
+		url("https://anhdep123.com/wp-content/uploads/2020/11/hinh-anh-background.jpeg");
+}
+
+.vertical-menu a {
+	background-color: transparent;
+	color: rgb(41, 41, 41);
+	display: block;
+	padding: 12px;
+	text-decoration: none;
+	font-weight: unset;
+	font-size:13px;
+}
+
+.vertical-menu a:hover {
+	background-color: #ccc;
+}
+
+.vertical-menu a.active {
+	background-color: rgb(43, 88, 155);
+	color: white;
+}
+
+.center {
+	float: left;
+	width: 85%;
+	height: 900px;
+}
+
+.center-mm1 {
+	float: left;
+	width: 60%;
+	height: 900px;
+	font-size: 13px;
+}
+
+.center-mm2 {
+	float: left;
+	width: 40%;
+	height: 900px;
+}
+
+.img {
+	margin: 10px 10px 10px 0px;
+	text-align: center;
+	padding: 5px;
+	background-color: rgb(226, 226, 226);
+	border-radius: 5px;
+	margin-left: 10px;
+}
+
+.img img {
+	border-radius: 5px;
+}
+
+#audio {
+	margin-left: 10px;
+	border-radius: 5px;
+	width: 96%;
+}
+
+label {
+	margin: 10px;
+}
+
+input {
+	margin: 10px;
+	display: block;
+	width: 450px;
+	height: 30px;
+	border-radius: 3px;
+	border: 1px solid rgb(177, 177, 177);
+	padding-left: 15px;
+}
+
+.show svg {
+	width: 20px;
+	height: 20px;
+	color: rgb(67, 67, 163);
+}
+
+.showhai svg {
+	width: 15px;
+	height: 15px;
+	color: rgb(219, 50, 50);
+}
+
+#div-searchalbum {
+	width: auto;
+	height: 50px;
+}
+
+#div-searchalbum-1 input {
+	position: absolute;
+	float: left;
+	width: 180px;
+	height: 31px;
+	padding-left: 70px;
+}
+
+#div-searchalbum-1 label {
+	position: absolute;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	border: 1px solid rgb(177, 177, 177);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 8px;
+	padding-right: 9px;
+	padding-left: 11px;
+	font-size: 13px;
+}
+
+#div-searchalbum-1 button {
+	position: absolute;
+	margin-top: 11px;
+	width: 45px;
+	height: 31px;
+	margin-left: 215px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-left: 1px solid rgb(112, 112, 112);
+}
+
+#div-searchalbum-1 svg {
+	color: rgb(67, 83, 177);
+	border-radius: 3px;
+	width: 20px;
+	height: 31px;
+}
+
+#div-searchalbum-1 {
+	float: left;
+	width: 210px;
+	height: 50px;
+}
+
+#div-searchalbum-2 {
+	float: left;
+	width: auto;
+	height: 50px;
+	margin-left: 60px;
+}
+
+#div-searchalbum-2 button {
+	position: absolute;
+	margin-top: 11px;
+	width: 45px;
+	height: 31px;
+	margin-left: 158px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-left: 1px solid rgb(112, 112, 112);
+}
+
+#div-searchalbum-2 svg {
+	color: rgb(67, 83, 177);
+	border-radius: 3px;
+	width: 20px;
+	height: 31px;
+}
+
+#div-searchalbum-2 input {
+	position: absolute;
+	width: 180px;
+	height: 31px;
+}
+
+#idx100 {
+	height: 53px;
+	width: 100%;
+}
+
+#idx100 label {
+	float: left;
+	margin-top: 10px;
+	margin-left: 11px;
+	border: 1px solid rgb(177, 177, 177);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	width: 110px;
+	height: 24px;
+	padding-top: 7px;
+	padding-left: 20px;
+	background-color: rgb(226, 226, 226);
+	font-size:13px;
+}
+
+#categorymusic {
+	float: left;
+	margin: 10px 0px 0px -11px;
+	width: 100px;
+	height: 33px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border: 1px solid rgb(177, 177, 177);
+	outline: none;
+	padding-left: 20px;
+	font-size:13px;
+}
+
+#dixname {
+	height: 55px;
+	width: 100%;
+}
+
+#dixname label {
+	float: left;
+	margin-top: 10px;
+	margin-left: 11px;
+	border: 1px solid rgb(177, 177, 177);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	width: 50px;
+	height: 24px;
+	padding-top: 7px;
+	padding-left: 10px;
+	font-size:13px;
+}
+
+#dixname input {
+	float: left;
+	margin: 10px 0px 0px -11px;
+	width: 407px;
+	height: 31px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border: 1px solid rgb(177, 177, 177);
+}
+
+.divurl {
+	height: 55px;
+	width: 100%;
+}
+
+.divurl label {
+	float: left;
+	margin-top: 10px;
+	margin-left: 11px;
+	border: 1px solid rgb(177, 177, 177);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	width: 40px;
+	height: 24px;
+	padding-top: 7px;
+	padding-left: 20px;
+	font-size:13px;
+}
+
+.divurl input {
+	float: left;
+	margin: 10px 0px 0px -11px;
+	width: 407px;
+	height: 31px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border: 1px solid rgb(177, 177, 177);
+}
+
+.divimage {
+	height: 55px;
+	width: 100%;
+}
+
+.divimage label {
+	float: left;
+	margin-top: 10px;
+	margin-left: 11px;
+	border: 1px solid rgb(177, 177, 177);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	width: 50px;
+	height: 24px;
+	padding-top: 7px;
+	padding-left: 10px;
+	font-size:13px;
+}
+
+.divimage input {
+	float: left;
+	margin: 10px 0px 0px -11px;
+	width: 407px;
+	height: 31px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border: 1px solid rgb(177, 177, 177);
+}
+
+#Create {
+	margin: 10px;
+	float: right;
+	border-radius: 3px;
+	width: 70px;
+	height: 30px;
+	border: 1px solid rgb(177, 177, 177);
+	background-color: rgb(115, 157, 197);
+}
+
+#Create svg {
+	margin-top: 2px;
+	color: rgb(3, 101, 192);
+	width: 25x;
+	height: 25px;
+	background-color: rgb(115, 157, 197);
+}
+
+#Save {
+	float: right;
+	margin: 10px 21px 10px 10px;
+	border-radius: 3px;
+	width: 70px;
+	height: 30px;
+	border: 1px solid rgb(177, 177, 177);
+	background-color: rgb(226, 176, 130);
+}
+
+#Save svg {
+	margin-top: 2px;
+	color: rgb(202, 122, 48);
+	width: 25x;
+	height: 25px;
+	background-color: rgb(226, 176, 130);
+}
+
+.pagination {
+	display: inline-block;
+	float: right;
+	margin-right: 30px;
+}
+
+.pagination a:nth-child(1) {
+	color: rgb(255, 255, 255);
+	float: left;
+	padding: 6px 20px;
+	text-decoration: none;
+	background-color: rgb(84, 84, 163);
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-right: 1px solid rgb(207, 204, 204);
+}
+
+.pagination a:nth-child(2) {
+	color: rgb(255, 255, 255);
+	float: left;
+	padding: 6px 20px;
+	text-decoration: none;
+	background-color: rgb(84, 84, 163);
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
