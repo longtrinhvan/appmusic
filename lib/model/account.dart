@@ -31,6 +31,34 @@ Future<Account> fetchAccount(
   return null;
 }
 
+Future<Account> fetchRegister(
+    http.Client client, String username,String fullname, String password) async {
+  var connectivityResult = await (Connectivity().checkConnectivity());
+  if (connectivityResult == ConnectivityResult.mobile) {
+    final response = await client.post(
+        Uri.parse('http://192.168.43.118:8080/register'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(
+            <String, String>{"name": username, "fullname": fullname, "password": password}));
+    print(
+        "http://192.168.43.118:8080/register:  " + response.statusCode.toString());
+    return Account.fromJson(jsonDecode(response.body));
+  } else if (connectivityResult == ConnectivityResult.wifi) {
+    final response = await client.post(
+        Uri.parse('http://192.168.1.10:8080/register'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(
+            <String, String>{"name": username, "fullname": fullname, "password": password}));
+    print("http://192.168.1.10:8080/register: " + response.statusCode.toString());
+    return Account.fromJson(jsonDecode(response.body));
+  }
+  return null;
+}
+
 class Account {
   final int id;
   final String name;

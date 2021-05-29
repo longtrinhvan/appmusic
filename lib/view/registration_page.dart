@@ -1,3 +1,5 @@
+import 'package:appmusic/model/account.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 
@@ -9,6 +11,10 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<Registration> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController fullnameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController checknameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -23,8 +29,20 @@ class _RegistrationPageState extends State<Registration> {
     final name = TextFormField(
       keyboardType: TextInputType.name,
       autofocus: false,
+      controller: usernameController,
       decoration: InputDecoration(
         hintText: 'Username',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+
+    final fullname = TextFormField(
+      keyboardType: TextInputType.name,
+      autofocus: false,
+      controller: fullnameController,
+      decoration: InputDecoration(
+        hintText: 'Fullname',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -33,6 +51,7 @@ class _RegistrationPageState extends State<Registration> {
     final password = TextFormField(
       autofocus: false,
       obscureText: true,
+      controller: passwordController,
       decoration: InputDecoration(
         hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -42,8 +61,9 @@ class _RegistrationPageState extends State<Registration> {
     final checkpassword = TextFormField(
       autofocus: false,
       obscureText: true,
+      controller: checknameController,
       decoration: InputDecoration(
-        hintText: 'Password',
+        hintText: 'Enter the password again',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -66,7 +86,18 @@ class _RegistrationPageState extends State<Registration> {
               borderRadius: BorderRadius.circular(24),
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed(LoginPage.tag);
+              fetchRegister(http.Client(), usernameController.text,fullnameController.text,
+                      passwordController.text)
+                  .then((value) => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginPage(),
+                          settings: RouteSettings(
+                            arguments: value,
+                          ),
+                        ),
+                      ))
+                  .onError((error, stackTrace) => null);
             },
             padding: EdgeInsets.all(12),
             color: Colors.transparent,
@@ -96,9 +127,11 @@ class _RegistrationPageState extends State<Registration> {
             logo,
             SizedBox(height: 48.0),
             name,
-            SizedBox(height: 8.0),
+            SizedBox(height: 10.0),
+            fullname,
+            SizedBox(height: 10.0),
             password,
-            SizedBox(height: 8.0),
+            SizedBox(height: 10.0),
             checkpassword,
             SizedBox(height: 24.0),
             loginButton,
