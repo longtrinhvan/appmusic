@@ -38,6 +38,33 @@ public class AccountDao extends ConnectMysql {
 		}
 		return null;
 	}
+	
+	public Account getAccount(String name, String password) {
+		try {
+			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt
+					.executeQuery("select * from account, role where account.idrole= role.idrole and  account.name = '"
+							+ name + "'  and account.password='" + password + "'");
+			while (rs.next()) {
+				Account account = new Account();
+				account.id = rs.getInt("id");
+				Role role = new Role();
+				role.idrole = rs.getInt("idrole");
+				role.namerole = rs.getString("namerole");
+				account.name = rs.getString("name");
+				account.fullname = rs.getString("fullname");
+				account.password = rs.getString("password");
+				account.image = rs.getString("image");
+				account.isdelete = rs.getInt("isdelete");
+				return account;
+			}
+			conn.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
 
 	public List<Account> getAccountpageSize(int indexPage) {
 

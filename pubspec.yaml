@@ -36,6 +36,7 @@ dependencies:
   connectivity: ^3.0.4
   audio_video_progress_bar: ^0.4.0
   flutter_gradient_colors: ^1.0.0
+  awesome_dialog: ^2.1.0
 
 dev_dependencies:
   flutter_test:

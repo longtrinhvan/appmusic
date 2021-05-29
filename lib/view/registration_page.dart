@@ -2,6 +2,7 @@ import 'package:appmusic/model/account.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'login_page.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class Registration extends StatefulWidget {
   static String tag = 'registration-page';
@@ -14,7 +15,7 @@ class _RegistrationPageState extends State<Registration> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController fullnameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController checknameController = TextEditingController();
+  TextEditingController checkpasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -61,7 +62,7 @@ class _RegistrationPageState extends State<Registration> {
     final checkpassword = TextFormField(
       autofocus: false,
       obscureText: true,
-      controller: checknameController,
+      controller: checkpasswordController,
       decoration: InputDecoration(
         hintText: 'Enter the password again',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -86,8 +87,38 @@ class _RegistrationPageState extends State<Registration> {
               borderRadius: BorderRadius.circular(24),
             ),
             onPressed: () {
-              fetchRegister(http.Client(), usernameController.text,fullnameController.text,
-                      passwordController.text)
+              if (usernameController.text == "" ||
+                  fullnameController.text == "" ||
+                  passwordController.text == "" ||
+                  checkpasswordController.text == "") {
+                print("nhập thiếu dữ liệu");
+                AwesomeDialog(
+                  context: context,
+                  headerAnimationLoop: false,
+                  dialogType: DialogType.WARNING,
+                  title: 'Error',
+                  dialogBackgroundColor: Colors.white,
+                  desc: 'Missing input',
+                ).show();
+                return null;
+              }
+
+              if (passwordController.text
+                      .compareTo(checkpasswordController.text) !=
+                  0) {
+                print("mật khẩu nhập không giống nhau");
+                AwesomeDialog(
+                  context: context,
+                  headerAnimationLoop: false,
+                  dialogType: DialogType.WARNING,
+                  title: 'Error',
+                  dialogBackgroundColor: Colors.white,
+                  desc: 'Please check the password again',
+                ).show();
+                return null;
+              }
+              fetchRegister(http.Client(), usernameController.text,
+                      fullnameController.text, passwordController.text)
                   .then((value) => Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -97,7 +128,15 @@ class _RegistrationPageState extends State<Registration> {
                           ),
                         ),
                       ))
-                  .onError((error, stackTrace) => null);
+                  .onError((error, stackTrace) => AwesomeDialog(
+                        context: context,
+                        headerAnimationLoop: false,
+                        dialogType: DialogType.WARNING,
+                        title: 'Error',
+                        dialogBackgroundColor: Colors.white,
+                        desc: 'Error creating account',
+                      ).show());
+              return null;
             },
             padding: EdgeInsets.all(12),
             color: Colors.transparent,

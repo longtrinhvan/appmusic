@@ -36,15 +36,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
 		String requestTokenHeader = request.getHeader("Authorization");
 		System.out.println(requestTokenHeader);
-//		try {
-//			requestTokenHeader = Login.account.token;
-//			if (System.currentTimeMillis() - timeStart > (10 * 60 * 1000)) {
-//				requestTokenHeader = null;
-//				Login.account.token = null;
-//			}
-//		} catch (Exception e) {
-//			timeStart = System.currentTimeMillis();
-//		}
 		String name = null;
 		String jwtToken = null;
 
@@ -61,22 +52,15 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			logger.warn("JWT Token does not begin with Bearer String");
 		}
 
-// Once we get the token validate it.
 		if (name != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
 			UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(name);
-
-// if token is valid configure Spring Security to manually set
-// authentication
 			if (jwtTokenUtil.validateToken(jwtToken, userDetails)) {
 
 				UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
 						userDetails, null, userDetails.getAuthorities());
 				usernamePasswordAuthenticationToken
 						.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-// After setting the Authentication in the context, we specify
-// that the current user is authenticated. So it passes the
-// Spring Security Configurations successfully.
 				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 			}
 		}

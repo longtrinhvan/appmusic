@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appmusic.common.Login;
 import com.appmusic.config.JwtTokenUtil;
 import com.appmusic.model.Account;
 import com.appmusic.model.Role;
@@ -37,14 +36,13 @@ public class JwtAuthenticationController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<Account> createAuthenticationToken(@RequestBody Account authenticationRequest,
 			HttpServletResponse response) throws Exception {
+			authenticate(authenticationRequest.name, authenticationRequest.password);
+			final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.name);
+			final String token = "Bearer " + jwtTokenUtil.generateToken(userDetails);
+			response.addHeader("Authorization", token);
+			authenticationRequest.token = token;
 
-		authenticate(authenticationRequest.name, authenticationRequest.password);
-		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.name);
-		final String token = jwtTokenUtil.generateToken(userDetails);
-		authenticationRequest.token = "Bearer " + token;
-		Login.account = authenticationRequest;
-		response.addHeader("Authorization", Login.account.token);
-		return ResponseEntity.ok(authenticationRequest);
+			return ResponseEntity.ok(authenticationRequest);
 	}
 
 	private void authenticate(String username, String password) throws Exception {

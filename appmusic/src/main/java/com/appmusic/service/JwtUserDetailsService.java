@@ -9,9 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.appmusic.Dao.AccountDao;
-import com.appmusic.common.Login;
 import com.appmusic.model.Account;
 
 @Service
@@ -24,17 +23,13 @@ public class JwtUserDetailsService implements UserDetailsService {
 	}
 
 	@Autowired
-	PasswordEncoder passwordEncoder;
+	private PasswordEncoder bcryptEncoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 		Account account = null;
 		try {
 			account = accountDao.getAccount(name);
-			Login.account.name = account.name;
-			Login.account.id = account.id;
-			Login.account.image = account.image;
-			Login.account.fullname = account.fullname;
 		} catch (Exception e) {
 
 		}
@@ -45,14 +40,11 @@ public class JwtUserDetailsService implements UserDetailsService {
 		}
 	}
 
-	public Account register(Account account) {
-		Account result = new Account();
-		result = account;
-		result.password = passwordEncoder.encode(account.password);
+	
+
+	public String register(Account account) {
+		account.password = bcryptEncoder.encode(account.password);
 		String insert = accountDao.register(account);
-		if(insert.equals("insert")) {
-			System.out.println(result.password);
-		}
-		return result;
+		return insert;
 	}
 }

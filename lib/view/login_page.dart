@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'registration_page.dart';
 import 'home_page.dart';
 import 'package:http/http.dart' as http;
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -66,6 +67,20 @@ class _LoginPageState extends State<LoginPage> {
               borderRadius: BorderRadius.circular(24),
             ),
             onPressed: () {
+              if (usernameController.text == "" ||
+                  passwordController.text == "") {
+                print("nhập thiếu dữ liệu");
+                AwesomeDialog(
+                  context: context,
+                  headerAnimationLoop: false,
+                  dialogType: DialogType.WARNING,
+                  title: 'Error',
+                  dialogBackgroundColor: Colors.white,
+                  desc: 'Missing input',
+                ).show();
+                return null;
+              }
+
               fetchAccount(http.Client(), usernameController.text,
                       passwordController.text)
                   .then((value) => Navigator.push(
@@ -77,7 +92,15 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ))
-                  .onError((error, stackTrace) => null);
+                  .onError((error, stackTrace) => AwesomeDialog(
+                        context: context,
+                        headerAnimationLoop: false,
+                        dialogType: DialogType.WARNING,
+                        title: 'Error',
+                        dialogBackgroundColor: Colors.white,
+                        desc: 'Error login',
+                      ).show());
+              return null;
             },
             padding: EdgeInsets.all(12),
             color: Colors.transparent,
