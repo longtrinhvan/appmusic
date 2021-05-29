@@ -22,5 +22,9 @@ public class MainController {
 	public String account(Model model) {
 		return "account";
 	}
+	@RequestMapping(value = { "/informationuser" }, method = RequestMethod.GET)
+	public String informationUser(Model model) {
+		return "informationuser";
+	}
 
 }
