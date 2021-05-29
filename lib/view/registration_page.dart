@@ -20,7 +20,7 @@ class _RegistrationPageState extends State<Registration> {
       ),
     );
 
-    final email = TextFormField(
+    final name = TextFormField(
       keyboardType: TextInputType.name,
       autofocus: false,
       decoration: InputDecoration(
@@ -32,7 +32,15 @@ class _RegistrationPageState extends State<Registration> {
 
     final password = TextFormField(
       autofocus: false,
-      initialValue: 'some password',
+      obscureText: true,
+      decoration: InputDecoration(
+        hintText: 'Password',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+    final checkpassword = TextFormField(
+      autofocus: false,
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Password',
@@ -87,9 +95,11 @@ class _RegistrationPageState extends State<Registration> {
           children: <Widget>[
             logo,
             SizedBox(height: 48.0),
-            email,
+            name,
             SizedBox(height: 8.0),
             password,
+            SizedBox(height: 8.0),
+            checkpassword,
             SizedBox(height: 24.0),
             loginButton,
             forgotLabel
