@@ -44,7 +44,9 @@ class _NavDrawerState extends State<HomePage> {
                 icon: Icon(Icons.search, color: Colors.white),
                 iconSize: 35,
                 onPressed: () {
-                  // showSearch(context: context, delegate: Search(null));
+                  fetchMusics(http.Client(), account).then((value) =>
+                      showSearch(context: context, delegate: Search(value))
+                          .onError((error, stackTrace) => null));
                 })
           ],
           leading: new IconButton(
@@ -54,7 +56,7 @@ class _NavDrawerState extends State<HomePage> {
             onPressed: () => _scaffoldKey.currentState.openDrawer(),
           )),
       body: FutureBuilder<List<Music>>(
-        future: fetchMusics(http.Client(),account),
+        future: fetchMusics(http.Client(), account),
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
           return snapshot.hasData
@@ -196,7 +198,7 @@ class BodyScreen extends StatelessWidget {
   }
 
   List<Music> listMusic(index) {
-    List<Music> ds =[];
+    List<Music> ds = [];
     Music y = musics[index];
     bool flag = false;
 

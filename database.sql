@@ -108,25 +108,41 @@ INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,
 VALUES(118,'NGƯỜI ƠI NGƯỜI Ở ĐỪNG VỀ ',2,1,'https://drive.google.com/file/d/1e7gszNEnC1T_LRMUkZYdf0DmX7hiWvCI/preview','https://avatar-ex-swe.nixcdn.com/song/2020/09/22/8/6/c/e/1600750113820_640.jpg',0);
 
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(9,'Light rock 1.1',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://cdn.shopify.com/s/files/1/0747/3829/products/mQ0289_1024x1024.jpeg',4);
+VALUES(9,'Bình Yên Những Phút Giây',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://cdn.shopify.com/s/files/1/0747/3829/products/mQ0289_1024x1024.jpeg',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(10,'Light rock 1.2',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-2.mp3','https://image.shutterstock.com/shutterstock/photos/769420375/display_1500/stock-vector-rock-forever-freedom-and-love-guitarist-playing-electric-guitar-icon-decorated-with-lines-and-769420375.jpg',4);
+VALUES(10,'Em Gái Mưa',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-2.mp3','https://image.shutterstock.com/shutterstock/photos/769420375/display_1500/stock-vector-rock-forever-freedom-and-love-guitarist-playing-electric-guitar-icon-decorated-with-lines-and-769420375.jpg',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(11,'Light rock 1.3',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-3.mp3','https://previews.123rf.com/images/sergeypykhonin/sergeypykhonin1709/sergeypykhonin170900036/85811603-rock-music-lettering-guitar-fretboard-label-vector-illustration.jpg',4);
+VALUES(11,'Nếu Là Anh',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-3.mp3','https://previews.123rf.com/images/sergeypykhonin/sergeypykhonin1709/sergeypykhonin170900036/85811603-rock-music-lettering-guitar-fretboard-label-vector-illustration.jpg',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(12,'Light rock 1.4',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_02-1.mp3','https://image.freepik.com/free-vector/rock-music-logo_23-2147889169.jpg',4);
+VALUES(12,'Hoa Nở Không Màu',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_02-1.mp3','https://image.freepik.com/free-vector/rock-music-logo_23-2147889169.jpg',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(13,'Light rock 1.5',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_02-2.mp3','https://ejomlexus.files.wordpress.com/2011/07/god-listens-to-rock-music.jpg',4);
+VALUES(13,'Trốn Tìm',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_02-2.mp3','https://ejomlexus.files.wordpress.com/2011/07/god-listens-to-rock-music.jpg',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(14,'Light rock 1.6',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_02-3.mp3','https://images.squarespace-cdn.com/content/v1/59eb8ebc1f318dc4da490f5d/1533170224865-T37P9ODBEKP626QMXJXW/ke17ZwdGBToddI8pDm48kCQk2zunoKiIFW35B84FIyV7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UXiDXE9gBE6MpsvHTR9qjuuOzYwSNUnR7AC_J8RtCgbszwMy-Jd4qnWKZiGmV5bqqQ/guitarhero.jpg',4);
+VALUES(14,'Something Just Like This',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_02-3.mp3','https://images.squarespace-cdn.com/content/v1/59eb8ebc1f318dc4da490f5d/1533170224865-T37P9ODBEKP626QMXJXW/ke17ZwdGBToddI8pDm48kCQk2zunoKiIFW35B84FIyV7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UXiDXE9gBE6MpsvHTR9qjuuOzYwSNUnR7AC_J8RtCgbszwMy-Jd4qnWKZiGmV5bqqQ/guitarhero.jpg',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(15,'Light rock 1.7',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-4.mp3','https://www.pngfind.com/pngs/m/330-3306161_rock-music-classic-sign-of-the-bar-tune.png',4);
+VALUES(15,'Waiting For Love',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-4.mp3','https://www.pngfind.com/pngs/m/330-3306161_rock-music-classic-sign-of-the-bar-tune.png',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(16,'Light rock 1.8',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://akm-img-a-in.tosshub.com/indiatoday/music-day-story,-facebook_647_062116084641.jpg',4);
+VALUES(16,'Way Back Home',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://akm-img-a-in.tosshub.com/indiatoday/music-day-story,-facebook_647_062116084641.jpg',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(17,'Light rock 1.9',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.roadiemusic.com/blog/wp-content/uploads/2020/02/Is-Rock-Music-Dead.png',4);
+VALUES(17,'Có Chắc Yêu Là Đây',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.roadiemusic.com/blog/wp-content/uploads/2020/02/Is-Rock-Music-Dead.png',4);
 INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
-VALUES(19,'Light rock 1.10',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.gordlemonmusic.com/wp-content/uploads/2018/02/Gord-Lemon-Rock-Music-Production-600x375.jpg',4);
+VALUES(18,'Phao - 2 Phut Hon',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.gordlemonmusic.com/wp-content/uploads/2018/02/Gord-Lemon-Rock-Music-Production-600x375.jpg',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(19,'The Men - Chờ Em Trong Đêm',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://akm-img-a-in.tosshub.com/indiatoday/music-day-story,-facebook_647_062116084641.jpg',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(20,'Anh Sợ Mất Em',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.roadiemusic.com/blog/wp-content/uploads/2020/02/Is-Rock-Music-Dead.png',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(21,'Anh Nhớ Em Nhiều Lắm',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.gordlemonmusic.com/wp-content/uploads/2018/02/Gord-Lemon-Rock-Music-Production-600x375.jpg',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(22,'Ngày Ấy Sẽ Đến',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.roadiemusic.com/blog/wp-content/uploads/2020/02/Is-Rock-Music-Dead.png',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(23,'Vệt Nắng Cuối Trời',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.gordlemonmusic.com/wp-content/uploads/2018/02/Gord-Lemon-Rock-Music-Production-600x375.jpg',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(24,'Chỉ Còn Những Mùa Nhớ',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://akm-img-a-in.tosshub.com/indiatoday/music-day-story,-facebook_647_062116084641.jpg',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(25,'Giấc Mơ Không Phải Anh',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.roadiemusic.com/blog/wp-content/uploads/2020/02/Is-Rock-Music-Dead.png',4);
+INSERT INTO `appmusic`.`music`(`id`,`name`,`idalbum`,`idcategory`,`url`,`image`,`isdelete`)
+VALUES(26,'Tình Yêu Hoa Gió',3,3,'https://www.mediacollege.com/downloads/music/ama/ama_01-1.mp3','https://www.gordlemonmusic.com/wp-content/uploads/2018/02/Gord-Lemon-Rock-Music-Production-600x375.jpg',4);
 
 
 CREATE TABLE role (

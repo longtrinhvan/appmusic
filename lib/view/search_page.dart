@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model/musics.dart';
 import '../screens/player.dart';
+
 class Search extends SearchDelegate<String> {
   final List<Music> musics;
 
@@ -75,12 +76,11 @@ class Search extends SearchDelegate<String> {
         title: RichText(
           text: TextSpan(
               text: suggestionList[index].name.substring(0, query.length),
-              style: TextStyle(
-                  fontSize: 17, color: Colors.red, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 14, color: Colors.black38),
               children: [
                 TextSpan(
                     text: suggestionList[index].name.substring(query.length),
-                    style: TextStyle(fontSize: 17, color: Colors.grey)),
+                    style: TextStyle(fontSize: 14, color: Colors.black38)),
               ]),
         ),
       ),

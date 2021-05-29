@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
               borderRadius: BorderRadius.circular(24),
             ),
             onPressed: () {
-              var result = fetchAccount(http.Client(), usernameController.text,
+              fetchAccount(http.Client(), usernameController.text,
                       passwordController.text)
                   .then((value) => Navigator.push(
                         context,
