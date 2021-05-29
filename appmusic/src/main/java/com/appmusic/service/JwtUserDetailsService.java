@@ -39,7 +39,10 @@ public class JwtUserDetailsService implements UserDetailsService {
 		}
 	}
 
-	
+	public Account encode(Account account) {
+		account.password = bcryptEncoder.encode(account.password);
+		return account;
+	}
 
 	public String register(Account account) {
 		account.password = bcryptEncoder.encode(account.password);

@@ -3,6 +3,7 @@ package com.appmusic.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import com.appmusic.Dao.AccountDao;
 import com.appmusic.Dao.RoleDao;
 import com.appmusic.model.Account;
 import com.appmusic.model.Role;
+import com.appmusic.service.JwtUserDetailsService;
 
 @RestController
 @Configuration
@@ -28,6 +30,9 @@ public class AccountApiController {
 	private RoleDao roleDao;
 	private AccountDao accountDao;
 
+	@Autowired
+	private JwtUserDetailsService userDetailsService;
+	
 	public AccountApiController() {
 		roleDao = new RoleDao();
 		accountDao = new AccountDao();
@@ -62,11 +67,11 @@ public class AccountApiController {
 	}
 
 	@RequestMapping(value = "/getaccount", method = RequestMethod.GET)
-	public ResponseEntity<Account> getAccount(String name) {
+	public ResponseEntity<Account> getAccountByID(int id) {
 		Account account = null;
 		var status = HttpStatus.OK;
 		try {
-			account = accountDao.getAccount(name);
+			account = accountDao.getAccountByID(id);
 		} catch (Throwable e) {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
@@ -111,16 +116,16 @@ public class AccountApiController {
 		return new ResponseEntity<>(result, null, status);
 	}
 
-//	@RequestMapping(value = "/insertaccount", method = RequestMethod.POST)
-//	public ResponseEntity<Account> insertAccount(@RequestBody Account account) {
-//		var status = HttpStatus.OK;
-//		try {
-//			accountDao.insertAccount(account);
-//		} catch (Throwable e) {
-//			status = HttpStatus.INTERNAL_SERVER_ERROR;
-//		}
-//		return new ResponseEntity<>(account, null, status);
-//	}
+	@RequestMapping(value = "/insertaccount", method = RequestMethod.POST)
+	public ResponseEntity<Account> insertAccount(@RequestBody Account account) {
+		var status = HttpStatus.OK;
+		try {
+			accountDao.insertAccount(userDetailsService.encode(account));
+		} catch (Throwable e) {
+			status = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		return new ResponseEntity<>(account, null, status);
+	}
 
 	@RequestMapping(value = "/updateaccount", method = RequestMethod.POST)
 	public ResponseEntity<Account> updateAccount(@RequestBody Account account) {
