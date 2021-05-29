@@ -137,8 +137,8 @@ class _PlayerState extends State<Player> {
                                                   BorderRadius.circular(500.0),
                                               child: Image.network(
                                                 sequence[i].tag.artwork,
-                                                width: 306.0,
-                                                height: 306.0,
+                                                width: 316.0,
+                                                height: 316.0,
                                                 fit: BoxFit.fill,
                                               ),
                                             ),
@@ -187,7 +187,7 @@ class _PlayerState extends State<Player> {
               ),
               PlayerButtons(_audioPlayer),
               SizedBox(
-                height: 100.0,
+                height: 80.0,
               ),
             ],
           ),

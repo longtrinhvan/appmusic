@@ -68,7 +68,7 @@ class Search extends SearchDelegate<String> {
             MaterialPageRoute(
               builder: (context) => Player(),
               settings: RouteSettings(
-                arguments: suggestionList[index],
+                arguments: listMusic(index),
               ),
             ),
           );
@@ -86,5 +86,27 @@ class Search extends SearchDelegate<String> {
       ),
       itemCount: suggestionList.length,
     );
+  }
+
+  List<Music> listMusic(index) {
+    List<Music> ds = [];
+    Music y = musics[index];
+    bool flag = false;
+
+    for (Music x in musics) {
+      if (y.id == x.id) {
+        flag = true;
+      }
+      if (flag == true) {
+        ds.add(x);
+      }
+    }
+    for (Music x in musics) {
+      if (y.id == x.id) {
+        break;
+      }
+      ds.add(x);
+    }
+    return ds;
   }
 }
