@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/musics.dart';
-import '../screens/player.dart';
+import 'player_page.dart';
 
 class Search extends SearchDelegate<String> {
   final List<Music> musics;

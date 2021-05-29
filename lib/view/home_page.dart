@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../model/account.dart';
 import '../model/musics.dart';
-import '../screens/player.dart';
+import 'player_page.dart';
 import 'login_page.dart';
 import 'search_page.dart';
 import 'package:http/http.dart' as http;

@@ -1,12 +1,3 @@
-/*
- * File: player.dart
- * Project: Flutter music player
- * Created Date: Wednesday February 17th 2021
- * Author: Michele Volpato
- * -----
- * Copyright (c) 2021 Michele Volpato
- */
-
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import '../screens/commons/buttons_player.dart';
