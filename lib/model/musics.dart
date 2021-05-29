@@ -19,7 +19,8 @@ Future<List<Music>> fetchMusics(http.Client client,Account account) async {
     );
     print(
         "http://192.168.43.118:8080/login:  " + response.statusCode.toString());
-    return compute(parseMusics, response.body);
+    String source = Utf8Decoder().convert(response.bodyBytes);
+    return compute(parseMusics, source);
   } else if (connectivityResult == ConnectivityResult.wifi) {
     print(account.token);
     final response = await client.get(
@@ -30,8 +31,10 @@ Future<List<Music>> fetchMusics(http.Client client,Account account) async {
       },
     );
     print("http://192.168.1.10:8080/login: " + response.statusCode.toString());
-    return compute(parseMusics, response.body);
+    String source = Utf8Decoder().convert(response.bodyBytes);
+    return compute(parseMusics, source);
   }
+  return null;
 }
 
 List<Music> parseMusics(String responseBody) {
