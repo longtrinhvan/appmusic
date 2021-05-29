@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   static String tag = 'home-page';
-
   @override
   _NavDrawerState createState() => _NavDrawerState();
 }

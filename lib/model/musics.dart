@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:appmusic/model/login.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity/connectivity.dart';
@@ -8,12 +9,25 @@ import 'package:connectivity/connectivity.dart';
 Future<List<Music>> fetchMusics(http.Client client) async {
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.mobile) {
-    final response = await client
-        .get(Uri.parse('http://192.168.43.118:8080/apimusic/getallmusic'));
+    final response = await client.get(
+      Uri.parse('http://192.168.43.118:8080/apimusic/getallmusic'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': Login.account.token,
+      },
+    );
+    print(
+        "http://192.168.43.118:8080/login:  " + response.statusCode.toString());
     return compute(parseMusics, response.body);
   } else if (connectivityResult == ConnectivityResult.wifi) {
-    final response = await client
-        .get(Uri.parse('http://192.168.1.10:8080/apimusic/getallmusic'));
+    final response = await client.get(
+      Uri.parse('http://192.168.1.10:8080/apimusic/getallmusic'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': Login.account.token,
+      },
+    );
+    print("http://192.168.1.10:8080/login: " + response.statusCode.toString());
     return compute(parseMusics, response.body);
   }
 }
@@ -47,7 +61,8 @@ class Music {
   });
 
   factory Music.fromJson(Map<String, dynamic> json) {
-    return Music(
+    print("music: " + json.toString());
+    Music music = Music(
       id: json['id'] as int,
       name: json['name'] as String,
       idalbum: json['album.idalbum'] as int,
@@ -58,5 +73,6 @@ class Music {
       image: json['image'] as String,
       isdelete: json['isdelete'] as int,
     );
+    return music;
   }
 }

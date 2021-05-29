@@ -1,6 +1,9 @@
+import 'package:appmusic/model/account.dart';
+import 'package:appmusic/model/login.dart';
 import 'package:flutter/material.dart';
 import 'registration_page.dart';
 import 'home_page.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -10,6 +13,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -22,11 +28,12 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final email = TextFormField(
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: TextInputType.name,
       autofocus: false,
-      initialValue: 'longtrinhvan97@gmail.com',
+      controller: usernameController,
+      //initialValue: 'longtrinhvan97@gmail.com',
       decoration: InputDecoration(
-        hintText: 'Email',
+        hintText: 'Username',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -34,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final password = TextFormField(
       autofocus: false,
-      initialValue: 'some password',
+      controller: passwordController,
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Password',
@@ -60,7 +67,11 @@ class _LoginPageState extends State<LoginPage> {
               borderRadius: BorderRadius.circular(24),
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed(HomePage.tag);
+              var result = fetchAccount(http.Client(), usernameController.text,
+                  passwordController.text);
+              if (Login.account.token != null) {
+                Navigator.of(context).pushNamed(HomePage.tag);
+              }
             },
             padding: EdgeInsets.all(12),
             color: Colors.transparent,
@@ -76,10 +87,8 @@ class _LoginPageState extends State<LoginPage> {
         style: TextStyle(color: Colors.black54, fontSize: 17),
       ),
       onPressed: () {
-        Navigator.push(context, new MaterialPageRoute(
-            builder: (context) =>
-            new Registration())
-        );
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => new Registration()));
       },
     );
 
@@ -97,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
             password,
             SizedBox(height: 24.0),
             loginButton,
-            forgotLabel
+            forgotLabel,
           ],
         ),
       ),

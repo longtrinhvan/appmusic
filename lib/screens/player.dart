@@ -9,7 +9,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import '../domain/audio_metadata.dart';
 import '../screens/commons/buttons_player.dart';
 import '../screens/commons/background_player.dart';
 import '../model/musics.dart';
@@ -70,3 +69,9 @@ class _PlayerState extends State<Player> {
     );
   }
 }
+class AudioMetadata {
+  final String title;
+  final String artwork;
+  AudioMetadata({this.title, this.artwork});
+}
+
