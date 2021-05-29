@@ -108,16 +108,16 @@ public class AccountApiController {
 		return new ResponseEntity<>(result, null, status);
 	}
 
-	@RequestMapping(value = "/insertaccount", method = RequestMethod.POST)
-	public ResponseEntity<Account> insertAccount(@RequestBody Account account) {
-		var status = HttpStatus.OK;
-		try {
-			accountDao.insertAccount(account);
-		} catch (Throwable e) {
-			status = HttpStatus.INTERNAL_SERVER_ERROR;
-		}
-		return new ResponseEntity<>(account, null, status);
-	}
+//	@RequestMapping(value = "/insertaccount", method = RequestMethod.POST)
+//	public ResponseEntity<Account> insertAccount(@RequestBody Account account) {
+//		var status = HttpStatus.OK;
+//		try {
+//			accountDao.insertAccount(account);
+//		} catch (Throwable e) {
+//			status = HttpStatus.INTERNAL_SERVER_ERROR;
+//		}
+//		return new ResponseEntity<>(account, null, status);
+//	}
 
 	@RequestMapping(value = "/updateaccount", method = RequestMethod.POST)
 	public ResponseEntity<Account> updateAccount(@RequestBody Account account) {

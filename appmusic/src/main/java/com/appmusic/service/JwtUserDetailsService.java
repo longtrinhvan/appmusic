@@ -2,10 +2,12 @@ package com.appmusic.service;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.appmusic.Dao.AccountDao;
@@ -20,6 +22,9 @@ public class JwtUserDetailsService implements UserDetailsService {
 	public JwtUserDetailsService() {
 		accountDao = new AccountDao();
 	}
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
@@ -38,5 +43,16 @@ public class JwtUserDetailsService implements UserDetailsService {
 		} else {
 			throw new UsernameNotFoundException("User not found with username: " + name);
 		}
+	}
+
+	public Account register(Account account) {
+		Account result = new Account();
+		result = account;
+		result.password = passwordEncoder.encode(account.password);
+		String insert = accountDao.register(account);
+		if(insert.equals("insert")) {
+			System.out.println(result.password);
+		}
+		return result;
 	}
 }

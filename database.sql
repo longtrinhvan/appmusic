@@ -172,7 +172,7 @@ CREATE TABLE account (
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
 VALUES(1,1,'long','Trịnh Văn Long','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
-VALUES(2,1,'sang','Đỗ Thái Sang','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
+VALUES(2,1,'sang','Đỗ Thái Sang','$2a$10$0zTdD9/ja6yzi6ZAC4AXoe9nvjLIHtzi4bFSeB/A1h/tBoSb81L1G','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)
 VALUES(3,2,'hung','Nguyễn Văn Hưng','$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6','https://yt3.ggpht.com/ytc/AAUvwniNNRXsKcsAunIOF31uQCGXMaxGrK5m3Kjj_T9cMg=s900-c-k-c0x00ffffff-no-rj',0);
 INSERT INTO `appmusic`.`account`(`id`,`idrole`,`name`,`fullname`,`password`,`image`,`isdelete`)

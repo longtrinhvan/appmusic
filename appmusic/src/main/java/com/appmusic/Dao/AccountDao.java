@@ -9,9 +9,6 @@ import java.util.List;
 
 import com.appmusic.common.ConnectMysql;
 import com.appmusic.model.Account;
-import com.appmusic.model.Album;
-import com.appmusic.model.Category;
-import com.appmusic.model.Music;
 import com.appmusic.model.Role;
 
 public class AccountDao extends ConnectMysql {
@@ -106,12 +103,12 @@ public class AccountDao extends ConnectMysql {
 		return "deletesuccess ";
 	}
 
-	public String insertAccount(Account account) {
+	public String register(Account account) {
 		try {
 			Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
-			String query = " INSERT INTO `appmusic`.`account`(`idrole`,`name`,`fullname`,`password`,`image`,`isdelete` VALUES(?,?,?,?,?,?);";
+			String query = " INSERT INTO account(idrole,name,fullname,password,image,isdelete) VALUES(?,?,?,?,?,?);";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setInt(1, account.role.idrole);
+			preparedStmt.setInt(1, 2);
 			preparedStmt.setString(2, account.name);
 			preparedStmt.setString(3, account.fullname);
 			preparedStmt.setString(4, account.password);
@@ -119,6 +116,7 @@ public class AccountDao extends ConnectMysql {
 			preparedStmt.setInt(6, 0);
 			preparedStmt.execute();
 			conn.close();
+			return "insert";
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

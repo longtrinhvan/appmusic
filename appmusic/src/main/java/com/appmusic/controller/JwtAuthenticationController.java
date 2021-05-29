@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.appmusic.common.Login;
 import com.appmusic.config.JwtTokenUtil;
 import com.appmusic.model.Account;
+import com.appmusic.model.Role;
 import com.appmusic.service.JwtUserDetailsService;
 
 @RestController
@@ -54,5 +55,14 @@ public class JwtAuthenticationController {
 		} catch (BadCredentialsException e) {
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public ResponseEntity<Account> createAccount(@RequestBody Account account, HttpServletResponse response)
+			throws Exception {
+		Role role = new Role();
+		account.role = role;
+		userDetailsService.register(account);
+		return ResponseEntity.ok(account);
 	}
 }

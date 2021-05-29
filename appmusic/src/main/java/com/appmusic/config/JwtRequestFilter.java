@@ -15,7 +15,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.appmusic.common.Login;
 import com.appmusic.service.JwtUserDetailsService;
 
 import io.jsonwebtoken.ExpiredJwtException;
