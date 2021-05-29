@@ -3,8 +3,8 @@ import 'package:just_audio/just_audio.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:rxdart/rxdart.dart';
 import '../screens/commons/buttons_player.dart';
-import '../screens/commons/background_player.dart';
 import '../model/musics.dart';
+import 'home_page.dart';
 
 class Player extends StatefulWidget {
   static String tag = 'play-page';
@@ -58,13 +58,137 @@ class _PlayerState extends State<Player> {
     }
     _audioPlayer.setAudioSource(_playlist).catchError((error) {});
     return Scaffold(
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/image/background.jpg"),
+            fit: BoxFit.fill,
+          ),
+        ),
         child: SafeArea(
           child: Column(
             children: [
-              Expanded(child: BackgroundPlayer(_audioPlayer)),
+              Expanded(
+                child: StreamBuilder<SequenceState>(
+                    stream: _audioPlayer.sequenceStateStream,
+                    builder: (context, snapshot) {
+                      final state = snapshot.data;
+                      final sequence = state?.sequence ?? [];
+                      int i = state.currentIndex;
+                      return Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: 28.0,
+                          ),
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Center(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        padding: EdgeInsets.only(left: 20),
+                                        iconSize: 30.0,
+                                        color: Colors.white,
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .pushNamed(HomePage.tag);
+                                        },
+                                        icon: Icon(
+                                          Icons.keyboard_arrow_down_outlined,
+                                         // Icons.arrow_drop_down,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20.0,
+                                      ),
+                                      Text(
+                                        sequence[i].tag.title,
+                                        style: TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: Center(
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(500.0),
+                                              child: Image.network(
+                                                sequence[i].tag.artwork,
+                                                width: 306.0,
+                                                height: 306.0,
+                                                fit: BoxFit.fill,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 30.0,
+                                        ),
+                                        Center(
+                                          child: Text(
+                                            "Tác giả: Trịnh Đình Quang",
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                        Center(
+                                          child: Text(
+                                            "Ca sĩ: Cao Thái Sơn",
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 100.0,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
               _progressBar(),
+              SizedBox(
+                height: 50.0,
+              ),
               PlayerButtons(_audioPlayer),
+              SizedBox(
+                height: 100.0,
+              ),
             ],
           ),
         ),
@@ -81,6 +205,9 @@ class _PlayerState extends State<Player> {
         final buffered = durationState?.buffered ?? Duration.zero;
         final total = durationState?.total ?? Duration.zero;
         return ProgressBar(
+          progressBarColor: Colors.blue[900],
+          baseBarColor: Colors.blue[400],
+          barHeight: 3.0,
           progress: progress,
           buffered: buffered,
           total: total,
