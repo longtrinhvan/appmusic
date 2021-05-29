@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import '../model/account.dart';
 import '../model/musics.dart';
 import '../screens/player.dart';
 import 'login_page.dart';
@@ -24,6 +25,7 @@ class _NavDrawerState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Account account = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -52,7 +54,7 @@ class _NavDrawerState extends State<HomePage> {
             onPressed: () => _scaffoldKey.currentState.openDrawer(),
           )),
       body: FutureBuilder<List<Music>>(
-        future: fetchMusics(http.Client()),
+        future: fetchMusics(http.Client(),account),
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
           return snapshot.hasData

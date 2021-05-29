@@ -1,5 +1,4 @@
 import 'package:appmusic/model/account.dart';
-import 'package:appmusic/model/login.dart';
 import 'package:flutter/material.dart';
 import 'registration_page.dart';
 import 'home_page.dart';
@@ -68,10 +67,17 @@ class _LoginPageState extends State<LoginPage> {
             ),
             onPressed: () {
               var result = fetchAccount(http.Client(), usernameController.text,
-                  passwordController.text);
-              if (Login.account.token != null) {
-                Navigator.of(context).pushNamed(HomePage.tag);
-              }
+                      passwordController.text)
+                  .then((value) => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(),
+                          settings: RouteSettings(
+                            arguments: value,
+                          ),
+                        ),
+                      ))
+                  .onError((error, stackTrace) => null);
             },
             padding: EdgeInsets.all(12),
             color: Colors.transparent,

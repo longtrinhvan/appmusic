@@ -1,30 +1,32 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:appmusic/model/login.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity/connectivity.dart';
 
-// ignore: missing_return
-Future<List<Music>> fetchMusics(http.Client client) async {
+import 'account.dart';
+
+Future<List<Music>> fetchMusics(http.Client client,Account account) async {
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.mobile) {
+    print(account.token);
     final response = await client.get(
       Uri.parse('http://192.168.43.118:8080/apimusic/getallmusic'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': Login.account.token,
+        'Authorization': account.token,
       },
     );
     print(
         "http://192.168.43.118:8080/login:  " + response.statusCode.toString());
     return compute(parseMusics, response.body);
   } else if (connectivityResult == ConnectivityResult.wifi) {
+    print(account.token);
     final response = await client.get(
       Uri.parse('http://192.168.1.10:8080/apimusic/getallmusic'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': Login.account.token,
+        'Authorization': account.token,
       },
     );
     print("http://192.168.1.10:8080/login: " + response.statusCode.toString());

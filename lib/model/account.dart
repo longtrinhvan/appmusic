@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:connectivity/connectivity.dart';
 import 'package:http/http.dart' as http;
-import 'login.dart';
 
 Future<Account> fetchAccount(
     http.Client client, String username, String password) async {
@@ -58,9 +57,6 @@ class Account {
       image: json['image'] as String,
       token: json['token'] as String,
     );
-    if (result != null) {
-      Login.account = result;
-    }
     return result;
   }
 }
