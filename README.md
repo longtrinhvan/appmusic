@@ -16,4 +16,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-Link Báo Cáo : https://docs.google.com/document/d/1clVpAF8yDHi8hoBVkCIlXz7vxKT157cB47Bp9GohFK8/edit?usp=sharing
+Link Báo Cáo : https://docs.google.com/document/d/1iKr6I_u14mflFiBS-R1h9eloY2dGtWBet6j2wwFRqsc/edit?usp=sharing
