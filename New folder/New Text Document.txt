@@ -1,5 +1,1 @@
-<<<<<<< .mine
-vvvvvvvvvvvvvvvvvvvvv
-=======
-xxxxxxxxxxxxxxxxx
->>>>>>> .theirs
+kkkkkkkkkkkkkkkkkkk
