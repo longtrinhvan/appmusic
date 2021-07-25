@@ -1,1 +1,5 @@
+<<<<<<< .mine
 vvvvvvvvvvvvvvvvvvvvv
+=======
+xxxxxxxxxxxxxxxxx
+>>>>>>> .theirs
