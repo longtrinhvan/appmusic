@@ -1,1 +1,6 @@
-lllllllllllllllllkkkkkkkkkkkkkkkkkkk
+<<<<<<< HEAD
+love2
+=======
+hhhhhhhhhhhhhhhhhhhhhhhh
+hhhhhhhhhhhhhhhhhhhhhhhh
+>>>>>>> hung
